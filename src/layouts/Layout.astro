@@ -1,0 +1,263 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import { siteConfig, type Lang } from '../config';
+import profile from '../content/profile.json';
+import { useTranslations } from '../i18n/translations';
+import '../styles/global.css';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  detectBrowserLang?: boolean;
+}
+
+const { lang, title, description, detectBrowserLang = false } = Astro.props;
+const t = useTranslations(lang);
+
+const otherLang = lang === siteConfig.defaultLang ? siteConfig.secondaryLang : siteConfig.defaultLang;
+const otherLangUrl = lang === siteConfig.defaultLang ? `/${siteConfig.secondaryLang}/` : '/';
+const otherLangLabel = otherLang.toUpperCase();
+
+const navLinks = [
+  { href: '#hero', label: t('nav.about'), icon: '◈' },
+  { href: '#about', label: t('nav.about'), icon: '◈' },
+  { href: '#experience', label: t('nav.experience'), icon: '◉' },
+  { href: '#projects', label: t('nav.projects'), icon: '◆' },
+  { href: '#skills', label: t('nav.skills'), icon: '◇' },
+  { href: '#contact', label: t('nav.contact'), icon: '◎' },
+];
+
+const pageTitle = title || `${profile.name} — ${profile.headline[lang]}`;
+const pageDescription = description || profile.heroDescription[lang];
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  <meta name="author" content={profile.name} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <ViewTransitions />
+
+  <!-- No-flash theme init -->
+  <script is:inline>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const isDark = saved ? saved === 'dark' : true;
+      document.documentElement.classList.toggle('dark', isDark);
+      if (!isDark) document.body && document.body.classList.add('light');
+    })();
+  </script>
+
+  <!-- Browser language auto-detection -->
+  {detectBrowserLang && (
+    <script is:inline>
+      (function() {
+        if (sessionStorage.getItem('langDetected')) return;
+        sessionStorage.setItem('langDetected', '1');
+        const lang = (navigator.language || navigator.languages?.[0] || '').toLowerCase();
+        if (lang.startsWith('es')) {
+          window.location.replace('/es/');
+        }
+      })();
+    </script>
+  )}
+</head>
+
+<body id="top" class="bg-[#050508] dark:bg-[#050508] text-[#c8d8f8] min-h-screen antialiased">
+
+  <!-- ═══════════════════════════════════════════
+       SIDEBAR — Desktop
+       ═══════════════════════════════════════════ -->
+  <aside class="sidebar-desktop fixed left-0 top-0 h-screen w-[260px] flex flex-col z-50"
+         style="background: #0d0d1a; border-right: 1px solid rgba(0,212,255,0.12);">
+
+    <!-- Logo / Identity -->
+    <div class="p-6 pb-4" style="border-bottom: 1px solid rgba(0,212,255,0.08);">
+      <a href="#hero" class="block group">
+        <div class="font-mono text-xs mb-1" style="color: rgba(0,212,255,0.5);">// developer</div>
+        <div class="font-display font-semibold text-lg leading-tight group-hover:text-[#00d4ff] transition-colors duration-200"
+             style="letter-spacing: -0.02em; color: #c8d8f8;">
+          mRoRo
+        </div>
+        <div class="font-mono text-xs mt-1 animate-neon-pulse" style="color: rgba(0,212,255,0.7);">
+          {profile.headline[lang]}
+        </div>
+      </a>
+    </div>
+
+    <!-- Online badge -->
+    <div class="px-6 py-3 flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full" style="background: #00ff88; box-shadow: 0 0 6px #00ff88;"></span>
+      <span class="font-mono text-xs" style="color: rgba(0,255,136,0.7);">{profile.badge[lang]}</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 py-2 overflow-y-auto">
+      <div class="font-mono text-xs mb-3 px-3" style="color: rgba(0,212,255,0.35); letter-spacing: 0.08em;">NAVIGATE</div>
+      <a href="#about" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">◈</span>
+        {t('nav.about')}
+      </a>
+      <a href="#experience" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">◉</span>
+        {t('nav.experience')}
+      </a>
+      <a href="#projects" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">◆</span>
+        {t('nav.projects')}
+      </a>
+      <a href="#skills" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">◇</span>
+        {t('nav.skills')}
+      </a>
+      <a href="#contact" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">◎</span>
+        {t('nav.contact')}
+      </a>
+
+      <!-- Social links -->
+      <div class="font-mono text-xs mt-6 mb-3 px-3" style="color: rgba(0,212,255,0.35); letter-spacing: 0.08em;">CONNECT</div>
+      <a href={profile.github.url} target="_blank" rel="noopener" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        GitHub
+      </a>
+      <a href={profile.linkedin} target="_blank" rel="noopener" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        LinkedIn
+      </a>
+      <a href={`https://twitter.com/MariaRRojo`} target="_blank" rel="noopener" class="sidebar-link mb-1">
+        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        X / Twitter
+      </a>
+    </nav>
+
+    <!-- Controls: Theme + Lang -->
+    <div class="p-4" style="border-top: 1px solid rgba(0,212,255,0.08);">
+      <div class="flex items-center gap-2">
+        <!-- Theme Toggle -->
+        <button
+          id="theme-toggle"
+          aria-label="Toggle theme"
+          class="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-md font-mono text-xs transition-all duration-200"
+          style="background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); color: rgba(0,212,255,0.7);"
+        >
+          <span id="theme-icon">☾</span>
+          <span id="theme-label">Dark</span>
+        </button>
+
+        <!-- Lang Toggle -->
+        <a
+          href={otherLangUrl}
+          class="flex items-center justify-center py-2 px-3 rounded-md font-mono text-xs font-semibold transition-all duration-200"
+          style="background: rgba(191,0,255,0.05); border: 1px solid rgba(191,0,255,0.15); color: rgba(191,0,255,0.8); min-width: 44px;"
+        >
+          {otherLangLabel}
+        </a>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════════════════════════════
+       MOBILE BOTTOM NAV
+       ═══════════════════════════════════════════ -->
+  <nav class="mobile-nav fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around px-2 py-2"
+       style="background: #0d0d1a; border-top: 1px solid rgba(0,212,255,0.12); height: 64px;">
+    <a href="#about" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+      <span class="text-base">◈</span>
+      <span class="font-mono text-[10px]">{t('nav.about')}</span>
+    </a>
+    <a href="#experience" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+      <span class="text-base">◉</span>
+      <span class="font-mono text-[10px]">{t('nav.experience')}</span>
+    </a>
+    <a href="#projects" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+      <span class="text-base">◆</span>
+      <span class="font-mono text-[10px]">{t('nav.projects')}</span>
+    </a>
+    <a href="#skills" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+      <span class="text-base">◇</span>
+      <span class="font-mono text-[10px]">{t('nav.skills')}</span>
+    </a>
+    <a href="#contact" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+      <span class="text-base">◎</span>
+      <span class="font-mono text-[10px]">{t('nav.contact')}</span>
+    </a>
+    <!-- Mobile lang toggle -->
+    <a href={otherLangUrl} class="flex flex-col items-center gap-0.5 p-2 rounded-lg" style="color: rgba(191,0,255,0.8);">
+      <span class="text-base">⌘</span>
+      <span class="font-mono text-[10px]">{otherLangLabel}</span>
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       SCANLINES OVERLAY
+       ═══════════════════════════════════════════ -->
+  <div class="scanlines fixed inset-0 z-[1] pointer-events-none opacity-40"></div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════ -->
+  <main class="main-content min-h-screen">
+    <slot />
+  </main>
+
+  <script>
+    // Theme toggle logic
+    const btn = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+
+    function applyTheme(dark: boolean) {
+      document.documentElement.classList.toggle('dark', dark);
+      document.body.classList.toggle('light', !dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      if (icon) icon.textContent = dark ? '☾' : '☀';
+      if (label) label.textContent = dark ? 'Dark' : 'Light';
+    }
+
+    // Init label from current state
+    const isDark = document.documentElement.classList.contains('dark');
+    if (icon) icon.textContent = isDark ? '☾' : '☀';
+    if (label) label.textContent = isDark ? 'Dark' : 'Light';
+
+    btn?.addEventListener('click', () => {
+      const currentlyDark = document.documentElement.classList.contains('dark');
+      applyTheme(!currentlyDark);
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            sidebarLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              link.classList.toggle('active', href === `#${id}`);
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

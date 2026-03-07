@@ -1,0 +1,424 @@
+@import 'tailwindcss';
+
+/* CRITICAL: Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Neon accent colors */
+  --color-neon: #00d4ff;
+  --color-neon-purple: #bf00ff;
+  --color-neon-green: #00ff88;
+  --color-neon-red: #ff3366;
+
+  /* Dark mode surfaces */
+  --color-bg-dark: #050508;
+  --color-surface-dark: #0d0d1a;
+  --color-surface-2-dark: #12122a;
+  --color-border-dark: #1a1a3a;
+
+  /* Light mode surfaces (day-mode cyberpunk: deep navy) */
+  --color-bg-light: #080d2a;
+  --color-surface-light: #0e1540;
+  --color-surface-2-light: #141d52;
+  --color-border-light: #1e2a60;
+
+  /* Text */
+  --color-text-primary: #c8d8f8;
+  --color-text-muted: #5a6a9a;
+  --color-text-dim: #3a4a7a;
+
+  /* Fonts */
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.light {
+  background-color: var(--color-bg-light);
+}
+
+/* =====================================================
+   TYPOGRAPHY
+   ===================================================== */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* =====================================================
+   TERMINAL WINDOW PANELS
+   ===================================================== */
+.terminal-window {
+  background: var(--color-surface-dark);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.05),
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(0, 212, 255, 0.02);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light .terminal-window {
+  background: var(--color-surface-light);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.terminal-window:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.1),
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 212, 255, 0.05),
+    inset 0 0 20px rgba(0, 212, 255, 0.03);
+}
+
+.terminal-bar {
+  background: var(--color-surface-2-dark);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(0, 212, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+.light .terminal-bar {
+  background: var(--color-surface-2-light);
+}
+
+.terminal-bar::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 14px 0 0 #ffbd2e, 28px 0 0 #28ca41;
+  flex-shrink: 0;
+}
+
+.terminal-bar span {
+  margin-left: 36px;
+}
+
+.terminal-content {
+  padding: 20px 24px;
+}
+
+.terminal-prompt::before {
+  content: '$ ';
+  color: var(--color-neon);
+  font-family: var(--font-mono);
+}
+
+/* =====================================================
+   NEON EFFECTS
+   ===================================================== */
+.neon-text {
+  color: var(--color-neon);
+  text-shadow:
+    0 0 7px rgba(0, 212, 255, 0.8),
+    0 0 15px rgba(0, 212, 255, 0.5),
+    0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  box-shadow:
+    0 0 8px rgba(0, 212, 255, 0.2),
+    inset 0 0 8px rgba(0, 212, 255, 0.05);
+}
+
+.neon-glow {
+  box-shadow:
+    0 0 20px rgba(0, 212, 255, 0.3),
+    0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+/* =====================================================
+   GLITCH EFFECT
+   ===================================================== */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: var(--color-neon-purple);
+  animation: glitch-1 4s infinite linear;
+  clip-path: inset(0 0 100% 0);
+}
+
+.glitch::after {
+  color: var(--color-neon);
+  animation: glitch-2 4s infinite linear;
+  animation-delay: 0.15s;
+  clip-path: inset(0 0 100% 0);
+}
+
+@keyframes glitch-1 {
+  0%, 85%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  86% { clip-path: inset(33% 0 40% 0); transform: translate(-3px, 1px); }
+  88% { clip-path: inset(70% 0 5% 0); transform: translate(3px, -1px); }
+  90% { clip-path: inset(10% 0 75% 0); transform: translate(-2px, 2px); }
+  92% { clip-path: inset(55% 0 28% 0); transform: translate(2px, 0px); }
+  94% { clip-path: inset(80% 0 10% 0); transform: translate(-3px, -1px); }
+  96% { clip-path: inset(20% 0 60% 0); transform: translate(1px, 2px); }
+  98% { clip-path: inset(45% 0 42% 0); transform: translate(-1px, 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 85%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  87% { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0px); }
+  89% { clip-path: inset(15% 0 68% 0); transform: translate(-3px, 1px); }
+  91% { clip-path: inset(78% 0 8% 0); transform: translate(2px, -2px); }
+  93% { clip-path: inset(38% 0 50% 0); transform: translate(-2px, 1px); }
+  95% { clip-path: inset(5% 0 88% 0); transform: translate(3px, 0); }
+  97% { clip-path: inset(62% 0 25% 0); transform: translate(-1px, -1px); }
+  99% { clip-path: inset(28% 0 55% 0); transform: translate(2px, 2px); }
+}
+
+/* =====================================================
+   SCANLINES OVERLAY
+   ===================================================== */
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.04) 3px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 7px rgba(0,212,255,0.8), 0 0 15px rgba(0,212,255,0.5); }
+  50% { opacity: 0.85; text-shadow: 0 0 4px rgba(0,212,255,0.6), 0 0 10px rgba(0,212,255,0.3); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes border-glow-pulse {
+  0%, 100% { border-color: rgba(0, 212, 255, 0.2); }
+  50% { border-color: rgba(0, 212, 255, 0.5); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s ease forwards;
+  opacity: 0;
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.cursor-blink::after {
+  content: '▋';
+  animation: blink-cursor 1.2s step-end infinite;
+  color: var(--color-neon);
+  margin-left: 2px;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* =====================================================
+   SKILL TAGS
+   ===================================================== */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.05);
+  color: rgba(0, 212, 255, 0.85);
+  transition: all 0.2s ease;
+  letter-spacing: 0.03em;
+}
+
+.skill-tag:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+  background: rgba(0, 212, 255, 0.12);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+  color: var(--color-neon);
+}
+
+.skill-tag-purple {
+  border-color: rgba(191, 0, 255, 0.25);
+  background: rgba(191, 0, 255, 0.05);
+  color: rgba(191, 0, 255, 0.85);
+}
+.skill-tag-purple:hover {
+  border-color: rgba(191, 0, 255, 0.6);
+  background: rgba(191, 0, 255, 0.12);
+  box-shadow: 0 0 8px rgba(191, 0, 255, 0.2);
+  color: var(--color-neon-purple);
+}
+
+.skill-tag-green {
+  border-color: rgba(0, 255, 136, 0.25);
+  background: rgba(0, 255, 136, 0.05);
+  color: rgba(0, 255, 136, 0.85);
+}
+.skill-tag-green:hover {
+  border-color: rgba(0, 255, 136, 0.6);
+  background: rgba(0, 255, 136, 0.12);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+  color: var(--color-neon-green);
+}
+
+/* =====================================================
+   SIDEBAR STYLES
+   ===================================================== */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  letter-spacing: 0.03em;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  color: var(--color-neon);
+  background: rgba(0, 212, 255, 0.05);
+  border-color: rgba(0, 212, 255, 0.15);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+.sidebar-link::before {
+  content: '>';
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--color-neon);
+  font-size: 0.7rem;
+}
+
+.sidebar-link:hover::before,
+.sidebar-link.active::before {
+  opacity: 1;
+}
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.6);
+}
+
+/* =====================================================
+   RESPONSIVE — Mobile bottom bar
+   ===================================================== */
+@media (max-width: 768px) {
+  .sidebar-desktop {
+    display: none;
+  }
+  .mobile-nav {
+    display: flex;
+  }
+  .main-content {
+    margin-left: 0 !important;
+    padding-bottom: 80px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none;
+  }
+  .main-content {
+    margin-left: 260px;
+  }
+}
+
+/* =====================================================
+   SELECTION
+   ===================================================== */
+::selection {
+  background: rgba(0, 212, 255, 0.25);
+  color: var(--color-neon);
+}

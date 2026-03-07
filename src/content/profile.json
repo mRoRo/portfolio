@@ -1,0 +1,197 @@
+{
+  "name": "María Rodríguez Rojo",
+  "username": "mRoRo",
+  "badge": {
+    "en": "Available for new challenges",
+    "es": "Disponible para nuevos retos"
+  },
+  "headline": {
+    "en": "Senior iOS Developer",
+    "es": "Desarrolladora iOS Senior"
+  },
+  "subheadline": {
+    "en": "12+ years crafting iOS apps that matter",
+    "es": "12+ años creando apps iOS que importan"
+  },
+  "heroDescription": {
+    "en": "Accomplished iOS Developer with 12+ years of experience across healthcare, transportation, and enterprise sectors. Building user-centric solutions across Europe.",
+    "es": "Desarrolladora iOS con más de 12 años de experiencia en salud, transporte y empresa. Creando soluciones centradas en el usuario por toda Europa."
+  },
+  "bio": {
+    "en": "I build iOS apps that people actually use — from mental health platforms protecting patient data under GDPR, to EU border control systems for freight carriers, to Bluetooth beacon SDKs improving accessibility in public transport. With a Master's in Telecommunications Engineering from UVA and over a decade in Swift and Objective-C, I combine deep technical knowledge with clean architecture, rigorous testing, and a genuine obsession with accessibility and user experience.",
+    "es": "Construyo apps iOS que la gente realmente usa — desde plataformas de salud mental protegiendo datos de pacientes bajo el RGPD, hasta sistemas de control fronterizo de la UE para transportistas, pasando por SDKs de balizas Bluetooth que mejoran la accesibilidad en el transporte público. Con un Máster en Ingeniería de Telecomunicaciones por la UVA y más de una década en Swift y Objective-C, combino conocimiento técnico profundo con arquitectura limpia, testing riguroso y una obsesión genuina por la accesibilidad y la experiencia de usuario."
+  },
+  "aboutTitle": {
+    "en": "About me",
+    "es": "Sobre mí"
+  },
+  "description": {
+    "en": "Senior iOS Developer with 12+ years of experience in healthcare, transportation, and enterprise apps. Based in Valladolid, Spain.",
+    "es": "Desarrolladora iOS Senior con más de 12 años de experiencia en apps de salud, transporte y empresa. Con base en Valladolid, España."
+  },
+  "location": "Valladolid, Spain",
+  "email": "maria.rodriguez1@gmail.com",
+  "phone": "+34 679 752 419",
+  "github": {
+    "username": "mRoRo",
+    "url": "https://github.com/mRoRo",
+    "publicRepos": 6,
+    "followers": 5
+  },
+  "linkedin": "https://www.linkedin.com/in/mariarodriguezrojo/",
+  "twitter": "https://twitter.com/MariaRRojo",
+  "yearsExperience": 12,
+  "experience": [
+    {
+      "company": "Minddistrict",
+      "role": { "en": "Senior iOS Developer", "es": "Desarrolladora iOS Senior" },
+      "period": "2022 – 2025",
+      "duration": { "en": "3 yrs", "es": "3 años" },
+      "current": false,
+      "tags": ["Swift", "SwiftUI", "GDPR", "Healthcare", "Accessibility"],
+      "description": {
+        "en": "Developed and maintained a comprehensive iOS healthcare platform for mental wellbeing and patient care. Implemented GDPR-compliant features for sensitive health data. Collaborated with healthcare professionals to create intuitive, accessible interfaces for diverse user needs.",
+        "es": "Desarrollo y mantenimiento de una plataforma iOS integral de salud mental y bienestar del paciente. Implementación de funcionalidades conformes con el RGPD para datos sensibles. Colaboración con profesionales sanitarios para crear interfaces intuitivas y accesibles."
+      }
+    },
+    {
+      "company": "GMV",
+      "role": { "en": "iOS Developer", "es": "Desarrolladora iOS" },
+      "period": "2016 – 2022",
+      "duration": { "en": "6 yrs", "es": "6 años" },
+      "current": false,
+      "tags": ["Swift", "Obj-C", "EU Projects", "SDK", "V2X", "CoreBluetooth"],
+      "description": {
+        "en": "Led multiple EU-funded iOS projects: Green Lane EUSPA (real-time border logistics), C-ROADS V2X (connected vehicle HMI), TMB Accessibility SDK (Bluetooth beacons for visually impaired), Satelise tolling system (GPS-based highway payments), and fleet management solutions for public transport.",
+        "es": "Lideré múltiples proyectos iOS europeos: Green Lane EUSPA (logística fronteriza en tiempo real), C-ROADS V2X (HMI vehículos conectados), SDK de Accesibilidad TMB (balizas Bluetooth para invidentes), sistema de peaje Satelise (pagos en autopista por GPS) y soluciones de gestión de flotas de transporte público."
+      }
+    },
+    {
+      "company": "Solid Gear",
+      "role": { "en": "iOS Developer", "es": "Desarrolladora iOS" },
+      "period": "2015 – 2016",
+      "duration": { "en": "11 mos", "es": "11 meses" },
+      "current": false,
+      "tags": ["Swift", "Objective-C", "ownCloud", "Open Source"],
+      "description": {
+        "en": "Contributed to the ownCloud iOS application, implementing cloud storage features for secure file synchronization used by thousands of enterprise users worldwide.",
+        "es": "Contribuí a la aplicación iOS de ownCloud, implementando funcionalidades de almacenamiento en la nube para sincronización segura de archivos utilizada por miles de usuarios empresariales en todo el mundo."
+      }
+    },
+    {
+      "company": "HC Technologies",
+      "role": { "en": "Mobile Developer (iOS & Android)", "es": "Desarrolladora Mobile (iOS & Android)" },
+      "period": "2013 – 2015",
+      "duration": { "en": "2 yrs", "es": "2 años" },
+      "current": false,
+      "tags": ["Swift", "Objective-C", "Android", "Bluetooth MFI", "CoreBluetooth"],
+      "description": {
+        "en": "Developed iOS and Android applications communicating with custom electronic devices via Bluetooth MFI for retail POS systems (APG Cash Drawer). Specialist in CoreBluetooth, wireless communications, and antenna impedance tuning.",
+        "es": "Desarrollo de apps iOS y Android que se comunicaban con dispositivos electrónicos a medida vía Bluetooth MFI para sistemas de punto de venta (APG Cash Drawer). Especialista en CoreBluetooth, comunicaciones inalámbricas y sintonización de impedancias de antena."
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "Minddistrict",
+      "description": {
+        "en": "Comprehensive iOS mental health platform. GDPR-compliant patient data management, accessible interfaces built with healthcare professionals.",
+        "es": "Plataforma iOS integral de salud mental. Gestión de datos de pacientes conforme al RGPD, interfaces accesibles creadas con profesionales sanitarios."
+      },
+      "skills": ["Swift", "SwiftUI", "GDPR", "MVVM", "Accessibility"],
+      "period": "2022 – 2025",
+      "company": "Minddistrict",
+      "highlight": true
+    },
+    {
+      "name": "Green Lane EUSPA",
+      "description": {
+        "en": "Real-time EU border status for freight carriers. Enhancing cross-border logistics efficiency for the European Commission.",
+        "es": "Estado de fronteras UE en tiempo real para transportistas. Mejora de la eficiencia logística transfronteriza para la Comisión Europea."
+      },
+      "skills": ["Swift", "RESTful APIs", "Core Location", "MapKit"],
+      "period": "2021 – 2022",
+      "company": "GMV",
+      "highlight": true
+    },
+    {
+      "name": "C-ROADS V2X HMI",
+      "description": {
+        "en": "Vehicle-to-Everything communication pilot HMI. Advancing connected vehicle technology across European roads.",
+        "es": "HMI piloto para comunicación Vehículo-a-Todo. Avanzando en tecnología de vehículos conectados en carreteras europeas."
+      },
+      "skills": ["Swift", "V2X", "CoreBluetooth", "MapKit"],
+      "period": "2020 – 2021",
+      "company": "GMV",
+      "highlight": false
+    },
+    {
+      "name": "TMB Accessibility SDK",
+      "description": {
+        "en": "iOS SDK enabling visually impaired users to receive bus info via Bluetooth Beacons. Improving public transport for everyone.",
+        "es": "SDK iOS que permite a usuarios con discapacidad visual recibir info de autobús vía Bluetooth Beacons. Mejorando el transporte público para todos."
+      },
+      "skills": ["Swift", "CoreBluetooth", "Accessibility", "SDK", "MFI"],
+      "period": "2019",
+      "company": "GMV",
+      "highlight": true
+    },
+    {
+      "name": "Satelise Tolling System",
+      "description": {
+        "en": "GPS-based iOS app for automated highway toll payments. Seamless, accurate location processing for thousands of daily users.",
+        "es": "App iOS basada en GPS para peaje automatizado en autopistas. Procesamiento de localización fluido y preciso para miles de usuarios diarios."
+      },
+      "skills": ["Swift", "Core Location", "MapKit", "Payments"],
+      "period": "2018 – 2022",
+      "company": "GMV",
+      "highlight": false
+    },
+    {
+      "name": "APG Cash Drawer",
+      "description": {
+        "en": "iOS & Android apps with Bluetooth MFI for retail POS systems. Built under Apple's MFI program for hardware communication.",
+        "es": "Apps iOS y Android con Bluetooth MFI para POS minorista. Construidas bajo el programa MFI de Apple para comunicación con hardware."
+      },
+      "skills": ["Swift", "Objective-C", "Android", "CoreBluetooth", "MFI"],
+      "period": "2013 – 2015",
+      "company": "HC Technologies",
+      "highlight": false
+    }
+  ],
+  "skills": {
+    "languages": ["Swift", "Objective-C"],
+    "frameworks": ["UIKit", "SwiftUI", "Combine", "Core Data", "CoreBluetooth", "Core Location", "MapKit", "AVFoundation", "XCTest", "Observation"],
+    "libraries": ["RxSwift", "ReactiveSwift", "Kingfisher", "Alamofire", "Realm", "SnapKit", "Protobuf", "Quick", "Nimble", "SnapshotTesting"],
+    "tools": ["Xcode", "Git", "Fastlane", "TestFlight", "CocoaPods", "Swift Package Manager"],
+    "architecture": ["MVVM", "Clean Architecture", "SOLID", "Protocol-Oriented Programming"],
+    "other": ["RESTful APIs", "SDUI", "Bluetooth MFI", "Push Notifications", "CI/CD", "Agile/Scrum", "Accessibility (VoiceOver)", "GDPR", "Feature Flags", "SDK Development"]
+  },
+  "education": [
+    {
+      "degree": { "en": "Master in Project Management", "es": "Máster en Dirección de Proyectos" },
+      "school": "Universidad de Valladolid",
+      "year": "2011 – 2012"
+    },
+    {
+      "degree": { "en": "Master of Engineering in Telecommunications", "es": "Ingeniero de Telecomunicación" },
+      "school": "Universidad de Valladolid",
+      "year": "2006 – 2010",
+      "note": { "en": "Final thesis at Budapest University of Technology (Erasmus)", "es": "PFC en la Universidad Tecnológica de Budapest (Erasmus)" }
+    }
+  ],
+  "certifications": [
+    { "name": "iOS Developer Nanodegree", "issuer": "Udacity", "year": "2017" },
+    { "name": "Android Developer Certification", "issuer": "Junta de Castilla y León", "year": "2013" },
+    { "name": "First Certificate in English (FCE)", "issuer": "Cambridge", "year": "" }
+  ],
+  "languages": [
+    { "name": { "en": "Spanish", "es": "Español" }, "level": { "en": "Native", "es": "Nativo" } },
+    { "name": { "en": "English", "es": "Inglés" }, "level": { "en": "Professional", "es": "Profesional" } },
+    { "name": { "en": "Galician", "es": "Gallego" }, "level": { "en": "Professional", "es": "Profesional" } }
+  ],
+  "hobbies": {
+    "en": ["Latin dancing", "LEGO building", "Hiking with dogs", "Traveling", "TV series"],
+    "es": ["Baile latino", "LEGO", "Senderismo con perros", "Viajes", "Series de TV"]
+  }
+}
