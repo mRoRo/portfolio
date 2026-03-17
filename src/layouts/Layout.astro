@@ -137,40 +137,40 @@ const ogImage = `${siteUrl}/og-image.png`;
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 px-4 py-2 overflow-y-auto">
+    <nav class="flex-1 px-4 py-2 overflow-y-auto" aria-label={t('nav.section.navigate')}>
       <div class="font-mono text-xs mb-3 px-3" style="color: var(--cyan-dim); letter-spacing: 0.08em;">{t('nav.section.navigate')}</div>
       <a href="#about" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">◈</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">◈</span>
         {t('nav.about')}
       </a>
       <a href="#experience" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">◉</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">◉</span>
         {t('nav.experience')}
       </a>
       <a href="#projects" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">◆</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">◆</span>
         {t('nav.projects')}
       </a>
       <a href="#skills" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">◇</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">◇</span>
         {t('nav.skills')}
       </a>
       <a href="#contact" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">◎</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">◎</span>
         {t('nav.contact')}
       </a>
 
       <div class="font-mono text-xs mt-6 mb-3 px-3" style="color: var(--cyan-dim); letter-spacing: 0.08em;">{t('nav.section.connect')}</div>
       <a href={profile.github.url} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">⌥</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">⌥</span>
         GitHub
       </a>
       <a href={profile.linkedin} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">⌥</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">⌥</span>
         LinkedIn
       </a>
       <a href={`https://twitter.com/MariaRRojo`} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: var(--cyan-dim);">⌥</span>
+        <span aria-hidden="true" style="color: var(--cyan-dim);">⌥</span>
         X / Twitter
       </a>
     </nav>
@@ -206,30 +206,31 @@ const ogImage = `${siteUrl}/og-image.png`;
        MOBILE BOTTOM NAV
        ═══════════════════════════════════════════ -->
   <nav class="mobile-nav fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around px-2 py-2"
+       aria-label={t('nav.section.navigate')}
        style="background: #0d0d1a; border-top: 1px solid rgba(0,212,255,0.12); height: 64px;">
     <a href="#about" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
-      <span class="text-base">◈</span>
+      <span class="text-base" aria-hidden="true">◈</span>
       <span class="font-mono text-[10px]">{t('nav.about')}</span>
     </a>
     <a href="#experience" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
-      <span class="text-base">◉</span>
+      <span class="text-base" aria-hidden="true">◉</span>
       <span class="font-mono text-[10px]">{t('nav.experience')}</span>
     </a>
     <a href="#projects" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
-      <span class="text-base">◆</span>
+      <span class="text-base" aria-hidden="true">◆</span>
       <span class="font-mono text-[10px]">{t('nav.projects')}</span>
     </a>
     <a href="#skills" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
-      <span class="text-base">◇</span>
+      <span class="text-base" aria-hidden="true">◇</span>
       <span class="font-mono text-[10px]">{t('nav.skills')}</span>
     </a>
     <a href="#contact" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
-      <span class="text-base">◎</span>
+      <span class="text-base" aria-hidden="true">◎</span>
       <span class="font-mono text-[10px]">{t('nav.contact')}</span>
     </a>
     <!-- Mobile lang toggle -->
     <a href={otherLangUrl} class="flex flex-col items-center gap-0.5 p-2 rounded-lg" style="color: rgba(191,0,255,0.8);">
-      <span class="text-base">⌘</span>
+      <span class="text-base" aria-hidden="true">⌘</span>
       <span class="font-mono text-[10px]">{otherLangLabel}</span>
     </a>
   </nav>

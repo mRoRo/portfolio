@@ -49,6 +49,7 @@ const skillColors: Record<string, string> = {
         <!-- Glitch name -->
         <h1
           class="glitch animate-fade-in-up delay-200 font-display font-bold leading-none mb-4"
+          aria-label={profile.name}
           data-text={profile.name}
           style="font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; color: var(--text-bright);"
         >
@@ -165,9 +166,9 @@ const skillColors: Record<string, string> = {
 <section id="about" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: var(--cyan);">❯</span> {t('about.label')}
-    </div>
+    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+      <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('about.label')}
+    </h2>
 
     <div class="grid lg:grid-cols-[1fr_280px] gap-8">
 
@@ -252,9 +253,9 @@ const skillColors: Record<string, string> = {
 <section id="experience" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: var(--cyan);">❯</span> {t('experience.label')}
-    </div>
+    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+      <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('experience.label')}
+    </h2>
 
     <!-- Timeline -->
     <div class="relative">
@@ -279,7 +280,7 @@ const skillColors: Record<string, string> = {
               <div class="terminal-content">
                 <div class="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <div class="font-display font-semibold text-base" style="color: var(--text-bright);">{exp.role[lang]}</div>
+                    <h3 class="font-display font-semibold text-base" style="color: var(--text-bright);">{exp.role[lang]}</h3>
                     <div class="font-mono text-xs mt-0.5" style="color: var(--cyan-mid);">{exp.duration[lang]}</div>
                   </div>
                   {exp.current && (
@@ -318,9 +319,9 @@ const skillColors: Record<string, string> = {
 <section id="projects" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: var(--cyan);">❯</span> {t('projects.label')}
-    </div>
+    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+      <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('projects.label')}
+    </h2>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {profile.projects.map((proj, i) => (
@@ -328,7 +329,7 @@ const skillColors: Record<string, string> = {
           class={`animate-fade-in-up delay-${(i + 1) * 100} terminal-window group cursor-default ${proj.highlight ? 'ring-1 ring-[rgba(0,212,255,0.2)]' : ''}`}
         >
           <div class="terminal-bar" style={proj.highlight ? "border-bottom-color: rgba(0,212,255,0.3)" : ""}>
-            <span style="flex: 1;">{proj.name}</span>
+            <span style="flex: 1;"><span class="sr-only">{t('projects.label')} — </span>{proj.name}</span>
             {proj.highlight && (
               <span class="font-mono text-[9px]" style="color: var(--green-bright);">★ {t('projects.highlight')}</span>
             )}
@@ -355,9 +356,9 @@ const skillColors: Record<string, string> = {
 <section id="skills" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: var(--cyan);">❯</span> {t('skills.label')}
-    </div>
+    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+      <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('skills.label')}
+    </h2>
 
     <div class="terminal-window">
       <div class="terminal-bar"><span>skills --verbose</span></div>
@@ -398,9 +399,9 @@ const skillColors: Record<string, string> = {
 <section id="contact" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: var(--cyan);">❯</span> {t('contact.label')}
-    </div>
+    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+      <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('contact.label')}
+    </h2>
 
     <div class="terminal-window max-w-2xl">
       <div class="terminal-bar"><span>./init_contact.sh</span></div>
