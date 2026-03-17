@@ -43,14 +43,14 @@
    ===================================================== */
 :root {
   --text-bright:   #c8d8f8;
-  --text-body:     rgba(200,216,248,0.8);
-  --text-muted:    rgba(200,216,248,0.5);
-  --text-dim:      rgba(200,216,248,0.4);
+  --text-body:     rgba(200,216,248,0.88);
+  --text-muted:    rgba(200,216,248,0.65);
+  --text-dim:      rgba(200,216,248,0.55);
 
   --cyan:          #00d4ff;
   --cyan-mid:      rgba(0,212,255,0.7);
   --cyan-soft:     rgba(0,212,255,0.5);
-  --cyan-dim:      rgba(0,212,255,0.4);
+  --cyan-dim:      rgba(0,212,255,0.55);
 
   --green-pure:    #00ff88;
   --green-bright:  rgba(0,255,136,0.9);

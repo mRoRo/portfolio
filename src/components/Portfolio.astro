@@ -57,7 +57,7 @@ const skillColors: Record<string, string> = {
 
         <!-- Title with neon glow -->
         <div class="animate-fade-in-up delay-300 font-display font-medium mb-2"
-             style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: #00d4ff; text-shadow: 0 0 20px rgba(0,212,255,0.5);">
+             style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--cyan);">
           {profile.headline[lang]}
         </div>
 
@@ -105,7 +105,7 @@ const skillColors: Record<string, string> = {
             <div class="flex items-baseline gap-2">
               <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-2xl font-semibold" style="color: #00d4ff; line-height:1;">{profile.yearsExperience}+</div>
+                <div class="font-mono text-2xl font-semibold" style="color: var(--cyan); line-height:1;">{profile.yearsExperience}+</div>
                 <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.experience')}</div>
               </div>
             </div>
@@ -153,7 +153,7 @@ const skillColors: Record<string, string> = {
       <span style="color: var(--cyan-dim);">◈</span>
       {profile.location[lang]}
       <span class="mx-2" style="color: rgba(0,212,255,0.2);">|</span>
-      <a href={`mailto:${profile.email}`} style="color: var(--cyan-soft);" class="hover:text-[#00d4ff] transition-colors">{profile.email}</a>
+      <a href={`mailto:${profile.email}`} style="color: var(--cyan-soft);" class="hover:text-[var(--cyan)] transition-colors">{profile.email}</a>
     </div>
 
   </div>
@@ -166,7 +166,7 @@ const skillColors: Record<string, string> = {
   <div class="max-w-5xl mx-auto">
 
     <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: #00d4ff;">❯</span> {t('about.label')}
+      <span style="color: var(--cyan);">❯</span> {t('about.label')}
     </div>
 
     <div class="grid lg:grid-cols-[1fr_280px] gap-8">
@@ -253,7 +253,7 @@ const skillColors: Record<string, string> = {
   <div class="max-w-5xl mx-auto">
 
     <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: #00d4ff;">❯</span> {t('experience.label')}
+      <span style="color: var(--cyan);">❯</span> {t('experience.label')}
     </div>
 
     <!-- Timeline -->
@@ -267,8 +267,8 @@ const skillColors: Record<string, string> = {
           <div class={`animate-fade-in-up delay-${(i + 1) * 100} relative md:pl-10`}>
             <!-- Timeline dot -->
             <div class="absolute left-0 top-5 w-[15px] h-[15px] rounded-full hidden md:flex items-center justify-center"
-                 style="background: #0d0d1a; border: 2px solid rgba(0,212,255,0.5); box-shadow: 0 0 10px rgba(0,212,255,0.3);">
-              <div class="w-1.5 h-1.5 rounded-full" style="background: #00d4ff;"></div>
+                 style="background: var(--color-surface-dark); border: 2px solid var(--cyan-soft);">
+              <div class="w-1.5 h-1.5 rounded-full" style="background: var(--cyan);"></div>
             </div>
 
             <div class="terminal-window">
@@ -319,7 +319,7 @@ const skillColors: Record<string, string> = {
   <div class="max-w-5xl mx-auto">
 
     <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: #00d4ff;">❯</span> {t('projects.label')}
+      <span style="color: var(--cyan);">❯</span> {t('projects.label')}
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -356,7 +356,7 @@ const skillColors: Record<string, string> = {
   <div class="max-w-5xl mx-auto">
 
     <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: #00d4ff;">❯</span> {t('skills.label')}
+      <span style="color: var(--cyan);">❯</span> {t('skills.label')}
     </div>
 
     <div class="terminal-window">
@@ -399,7 +399,7 @@ const skillColors: Record<string, string> = {
   <div class="max-w-5xl mx-auto">
 
     <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-      <span style="color: #00d4ff;">❯</span> {t('contact.label')}
+      <span style="color: var(--cyan);">❯</span> {t('contact.label')}
     </div>
 
     <div class="terminal-window max-w-2xl">
@@ -424,7 +424,7 @@ const skillColors: Record<string, string> = {
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: var(--cyan-dim);">$</span>
             <span class="font-mono text-xs flex-shrink-0" style="color: var(--cyan-soft);">open</span>
-            <span class="font-mono text-sm font-medium" style="color: #00d4ff;">{profile.email}</span>
+            <span class="font-mono text-sm font-medium" style="color: var(--cyan);">{profile.email}</span>
             <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: var(--cyan-soft);">↗</span>
           </a>
 
@@ -486,7 +486,7 @@ const skillColors: Record<string, string> = {
     <div class="font-mono text-xs flex items-center gap-1" style="color: rgba(200,216,248,0.3);">
       {t('footer.made')} 🧡
       <a href="https://webreactiva.com" target="_blank" rel="noopener"
-         class="transition-colors hover:text-[#00d4ff]"
+         class="transition-colors hover:text-[var(--cyan)]"
          style="color: var(--cyan-soft);">
         {t('footer.by')}
       </a>
