@@ -213,6 +213,19 @@
     { "name": { "en": "English", "es": "Inglés" }, "level": { "en": "Professional", "es": "Profesional" } },
     { "name": { "en": "Galician", "es": "Gallego" }, "level": { "en": "Professional", "es": "Profesional" } }
   ],
+  "testimonials": [
+    {
+      "name": "Oscar Colinas González",
+      "role": {
+        "en": "Service Delivery Scheduler at Colt Technology Services",
+        "es": "Service Delivery Scheduler en Colt Technology Services"
+      },
+      "text": {
+        "es": "Es una persona encantadora, se ofrece para ayudarte en cualquier cosa que necesites, además de esforzarse al máximo para alcanzar cualquier objetivo que se le pone por delante.",
+        "en": "She is a wonderful person, always ready to help with whatever you need, and gives her absolute best to achieve any goal set before her."
+      }
+    }
+  ],
   "hobbies": {
     "en": ["Latin dancing", "LEGO building", "Hiking with dogs", "Traveling", "TV series"],
     "es": ["Baile latino", "LEGO", "Senderismo con perros", "Viajes", "Series de TV"]

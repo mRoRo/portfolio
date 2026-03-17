@@ -47,6 +47,9 @@ export const ui = {
     'skills.architecture': 'Architecture',
     'skills.other': 'Other',
 
+    // Testimonials
+    'testimonials.label': '~/testimonials.log',
+
     // Contact
     'contact.label': '~/contact.sh',
     'contact.available': 'Available for new opportunities',
@@ -107,6 +110,9 @@ export const ui = {
     'skills.ai': 'Herramientas IA',
     'skills.architecture': 'Arquitectura',
     'skills.other': 'Otros',
+
+    // Testimonials
+    'testimonials.label': '~/recomendaciones.log',
 
     // Contact
     'contact.label': '~/contacto.sh',

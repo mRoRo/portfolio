@@ -393,6 +393,37 @@ const skillColors: Record<string, string> = {
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════════════════════════ -->
+{profile.testimonials && profile.testimonials.length > 0 && (
+  <section id="testimonials" class="px-8 py-20">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+        <span style="color: #00d4ff;">❯</span> {t('testimonials.label')}
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {profile.testimonials.map((item, i) => (
+          <div class={`animate-fade-in-up delay-${(i + 1) * 100} terminal-window`}>
+            <div class="terminal-bar">
+              <span style="flex: 1;">{item.name}</span>
+            </div>
+            <div class="terminal-content">
+              <div class="font-mono text-[10px] mb-3" style="color: rgba(0,212,255,0.5);">{item.role[lang]}</div>
+              <blockquote class="font-sans text-sm leading-relaxed italic" style="color: rgba(200,216,248,0.8);">
+                <span style="color: rgba(0,212,255,0.3);">"</span>{item.text[lang]}<span style="color: rgba(0,212,255,0.3);">"</span>
+              </blockquote>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+)}
+
+<!-- ═══════════════════════════════════════════════════════════
      CONTACT
      ═══════════════════════════════════════════════════════════ -->
 <section id="contact" class="px-8 py-20">
