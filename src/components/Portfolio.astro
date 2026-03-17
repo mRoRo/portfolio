@@ -30,7 +30,7 @@ const skillColors: Record<string, string> = {
     <!-- Badge -->
     <div class="animate-fade-in-up delay-100 mb-6">
       <span class="inline-flex items-center gap-2 font-mono text-xs py-1.5 px-4 rounded-full"
-            style="background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.3); color: rgba(0,255,136,0.9);">
+            style="background: var(--bg-green-08); border: 1px solid var(--border-green-30); color: var(--green-bright);">
         <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #00ff88; box-shadow: 0 0 6px #00ff88;"></span>
         {profile.badge[lang]}
       </span>
@@ -42,7 +42,7 @@ const skillColors: Record<string, string> = {
       <!-- Identity -->
       <div>
         <!-- Prompt line -->
-        <div class="animate-fade-in-up delay-100 font-mono text-sm mb-3" style="color: rgba(0,212,255,0.5);">
+        <div class="animate-fade-in-up delay-100 font-mono text-sm mb-3" style="color: var(--cyan-soft);">
           <span style="color: #00ff88;">❯</span> whoami
         </div>
 
@@ -50,7 +50,7 @@ const skillColors: Record<string, string> = {
         <h1
           class="glitch animate-fade-in-up delay-200 font-display font-bold leading-none mb-4"
           data-text={profile.name}
-          style="font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; color: #c8d8f8;"
+          style="font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; color: var(--text-bright);"
         >
           {profile.name}
         </h1>
@@ -63,12 +63,12 @@ const skillColors: Record<string, string> = {
 
         <!-- Subheadline -->
         <div class="animate-fade-in-up delay-400 font-mono text-sm mb-6" style="color: rgba(200, 216, 248, 0.5);">
-          <span style="color: rgba(0,212,255,0.4);">//</span> {profile.subheadline[lang]}
+          <span style="color: var(--cyan-dim);">//</span> {profile.subheadline[lang]}
         </div>
 
         <!-- Description -->
         <p class="animate-fade-in-up delay-500 font-sans text-base leading-relaxed mb-8 max-w-xl"
-           style="color: rgba(200,216,248,0.7);">
+           style="color: var(--text-body);">
           {profile.heroDescription[lang]}
         </p>
 
@@ -77,7 +77,7 @@ const skillColors: Record<string, string> = {
           <a
             href="#contact"
             class="inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
-            style="background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.4); color: #00d4ff; box-shadow: 0 0 20px rgba(0,212,255,0.1);"
+            style="background: var(--bg-cyan-10); border: 1px solid var(--border-cyan-40); color: var(--cyan); box-shadow: 0 0 20px rgba(0,212,255,0.1);"
             onmouseover="this.style.background='rgba(0,212,255,0.2)'; this.style.boxShadow='0 0 30px rgba(0,212,255,0.25)'"
             onmouseout="this.style.background='rgba(0,212,255,0.1)'; this.style.boxShadow='0 0 20px rgba(0,212,255,0.1)'"
           >
@@ -86,7 +86,7 @@ const skillColors: Record<string, string> = {
           <a
             href="#projects"
             class="inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
-            style="background: rgba(191,0,255,0.08); border: 1px solid rgba(191,0,255,0.3); color: rgba(191,0,255,0.9);"
+            style="background: var(--bg-purple-08); border: 1px solid var(--border-purple-30); color: var(--purple-bright);"
             onmouseover="this.style.background='rgba(191,0,255,0.15)'; this.style.boxShadow='0 0 20px rgba(191,0,255,0.2)'"
             onmouseout="this.style.background='rgba(191,0,255,0.08)'; this.style.boxShadow='none'"
           >
@@ -103,30 +103,30 @@ const skillColors: Record<string, string> = {
         <div class="terminal-content py-5 px-5">
           <div class="space-y-4">
             <div class="flex items-baseline gap-2">
-              <span class="font-mono text-xs" style="color: rgba(0,212,255,0.5);">$</span>
+              <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
                 <div class="font-mono text-2xl font-semibold" style="color: #00d4ff; line-height:1;">{profile.yearsExperience}+</div>
-                <div class="font-mono text-xs mt-0.5" style="color: rgba(200,216,248,0.5);">{t('hero.stat.experience')}</div>
+                <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.experience')}</div>
               </div>
             </div>
 
             <div class="h-px" style="background: rgba(0,212,255,0.08);"></div>
 
             <div class="flex items-baseline gap-2">
-              <span class="font-mono text-xs" style="color: rgba(0,212,255,0.5);">$</span>
+              <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
                 <div class="font-mono text-2xl font-semibold" style="color: #00ff88; line-height:1;">6+</div>
-                <div class="font-mono text-xs mt-0.5" style="color: rgba(200,216,248,0.5);">{t('hero.stat.projects')}</div>
+                <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.projects')}</div>
               </div>
             </div>
 
             <div class="h-px" style="background: rgba(0,212,255,0.08);"></div>
 
             <div class="flex items-baseline gap-2">
-              <span class="font-mono text-xs" style="color: rgba(0,212,255,0.5);">$</span>
+              <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-sm font-semibold cursor-blink" style="color: #c8d8f8; line-height:1.4;">{profile.location}</div>
-                <div class="font-mono text-xs mt-0.5" style="color: rgba(200,216,248,0.5);">{t('hero.stat.location')}</div>
+                <div class="font-mono text-sm font-semibold cursor-blink" style="color: var(--text-bright); line-height:1.4;">{profile.location}</div>
+                <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.location')}</div>
               </div>
             </div>
 
@@ -134,7 +134,7 @@ const skillColors: Record<string, string> = {
 
             <!-- Tech stack pills -->
             <div>
-              <div class="font-mono text-xs mb-2" style="color: rgba(0,212,255,0.4);">// primary_stack</div>
+              <div class="font-mono text-xs mb-2" style="color: var(--cyan-dim);">// primary_stack</div>
               <div class="flex flex-wrap gap-1.5">
                 {['Swift', 'SwiftUI', 'UIKit', 'MVVM'].map(s => (
                   <span class="skill-tag text-[10px] py-0.5 px-2">{s}</span>
@@ -149,11 +149,11 @@ const skillColors: Record<string, string> = {
 
     <!-- Location indicator -->
     <div class="animate-fade-in-up delay-700 mt-10 flex items-center gap-2 font-mono text-xs"
-         style="color: rgba(200,216,248,0.35);">
-      <span style="color: rgba(0,212,255,0.4);">◈</span>
+         style="color: var(--text-dim);">
+      <span style="color: var(--cyan-dim);">◈</span>
       {profile.location}
       <span class="mx-2" style="color: rgba(0,212,255,0.2);">|</span>
-      <a href={`mailto:${profile.email}`} style="color: rgba(0,212,255,0.5);" class="hover:text-[#00d4ff] transition-colors">{profile.email}</a>
+      <a href={`mailto:${profile.email}`} style="color: var(--cyan-soft);" class="hover:text-[#00d4ff] transition-colors">{profile.email}</a>
     </div>
 
   </div>
@@ -165,7 +165,7 @@ const skillColors: Record<string, string> = {
 <section id="about" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span style="color: #00d4ff;">❯</span> {t('about.label')}
     </div>
 
@@ -175,13 +175,13 @@ const skillColors: Record<string, string> = {
       <div class="terminal-window animate-fade-in-up">
         <div class="terminal-bar"><span>~/bio.md</span></div>
         <div class="terminal-content">
-          <p class="font-sans text-base leading-loose" style="color: rgba(200,216,248,0.8);">
+          <p class="font-sans text-base leading-loose" style="color: var(--text-body);">
             {profile.bio[lang]}
           </p>
 
           <!-- Hobbies -->
           <div class="mt-6">
-            <div class="font-mono text-xs mb-3" style="color: rgba(0,212,255,0.4);">// interests_offline</div>
+            <div class="font-mono text-xs mb-3" style="color: var(--cyan-dim);">// interests_offline</div>
             <div class="flex flex-wrap gap-2">
               {profile.hobbies[lang].map((h) => (
                 <span class="font-mono text-xs py-1 px-3 rounded-full"
@@ -203,10 +203,10 @@ const skillColors: Record<string, string> = {
           <div class="terminal-content py-4">
             {profile.education.map((edu) => (
               <div class="mb-4 last:mb-0">
-                <div class="font-display font-medium text-sm" style="color: #c8d8f8;">{edu.degree[lang]}</div>
-                <div class="font-mono text-xs mt-1" style="color: rgba(0,212,255,0.6);">{edu.school}</div>
-                <div class="font-mono text-xs" style="color: rgba(200,216,248,0.4);">{edu.year}</div>
-                {edu.note && <div class="font-mono text-xs mt-1 italic" style="color: rgba(200,216,248,0.35);">{edu.note[lang]}</div>}
+                <div class="font-display font-medium text-sm" style="color: var(--text-bright);">{edu.degree[lang]}</div>
+                <div class="font-mono text-xs mt-1" style="color: var(--cyan-mid);">{edu.school}</div>
+                <div class="font-mono text-xs" style="color: var(--text-dim);">{edu.year}</div>
+                {edu.note && <div class="font-mono text-xs mt-1 italic" style="color: var(--text-dim);">{edu.note[lang]}</div>}
               </div>
             ))}
           </div>
@@ -218,10 +218,10 @@ const skillColors: Record<string, string> = {
           <div class="terminal-content py-4">
             {profile.certifications.map((cert) => (
               <div class="flex items-start gap-2 mb-3 last:mb-0">
-                <span class="font-mono text-[10px] mt-0.5" style="color: rgba(0,212,255,0.4);">✓</span>
+                <span class="font-mono text-[10px] mt-0.5" style="color: var(--cyan-dim);">✓</span>
                 <div>
-                  <div class="font-mono text-xs font-medium" style="color: #c8d8f8;">{cert.name}</div>
-                  <div class="font-mono text-[10px]" style="color: rgba(200,216,248,0.4);">{cert.issuer}{cert.year ? ` · ${cert.year}` : ''}</div>
+                  <div class="font-mono text-xs font-medium" style="color: var(--text-bright);">{cert.name}</div>
+                  <div class="font-mono text-[10px]" style="color: var(--text-dim);">{cert.issuer}{cert.year ? ` · ${cert.year}` : ''}</div>
                 </div>
               </div>
             ))}
@@ -234,8 +234,8 @@ const skillColors: Record<string, string> = {
           <div class="terminal-content py-4">
             {profile.languages.map((l) => (
               <div class="flex items-center justify-between mb-2 last:mb-0">
-                <span class="font-mono text-xs" style="color: #c8d8f8;">{l.name[lang]}</span>
-                <span class="font-mono text-xs" style="color: rgba(0,212,255,0.7);">{l.level[lang]}</span>
+                <span class="font-mono text-xs" style="color: var(--text-bright);">{l.name[lang]}</span>
+                <span class="font-mono text-xs" style="color: var(--cyan-mid);">{l.level[lang]}</span>
               </div>
             ))}
           </div>
@@ -252,7 +252,7 @@ const skillColors: Record<string, string> = {
 <section id="experience" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span style="color: #00d4ff;">❯</span> {t('experience.label')}
     </div>
 
@@ -274,13 +274,13 @@ const skillColors: Record<string, string> = {
             <div class="terminal-window">
               <div class="terminal-bar">
                 <span style="flex: 1;">{exp.company}</span>
-                <span style="color: rgba(200,216,248,0.4); font-size: 0.65rem;">{exp.period}</span>
+                <span style="color: var(--text-dim); font-size: 0.65rem;">{exp.period}</span>
               </div>
               <div class="terminal-content">
                 <div class="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <div class="font-display font-semibold text-base" style="color: #c8d8f8;">{exp.role[lang]}</div>
-                    <div class="font-mono text-xs mt-0.5" style="color: rgba(0,212,255,0.6);">{exp.duration[lang]}</div>
+                    <div class="font-display font-semibold text-base" style="color: var(--text-bright);">{exp.role[lang]}</div>
+                    <div class="font-mono text-xs mt-0.5" style="color: var(--cyan-mid);">{exp.duration[lang]}</div>
                   </div>
                   {exp.current && (
                     <span class="font-mono text-[10px] py-1 px-2 rounded flex-shrink-0"
@@ -290,12 +290,12 @@ const skillColors: Record<string, string> = {
                   )}
                 </div>
 
-                <p class="font-sans text-sm leading-relaxed mb-4" style="color: rgba(200,216,248,0.7);">
+                <p class="font-sans text-sm leading-relaxed mb-4" style="color: var(--text-body);">
                   {exp.description[lang]}
                 </p>
 
                 <div>
-                  <div class="font-mono text-[10px] mb-2" style="color: rgba(0,212,255,0.4);">// {t('experience.stack')}</div>
+                  <div class="font-mono text-[10px] mb-2" style="color: var(--cyan-dim);">// {t('experience.stack')}</div>
                   <div class="flex flex-wrap gap-1.5">
                     {exp.tags.map((tag) => (
                       <span class="skill-tag py-0.5 px-2 text-[10px]">{tag}</span>
@@ -318,7 +318,7 @@ const skillColors: Record<string, string> = {
 <section id="projects" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span style="color: #00d4ff;">❯</span> {t('projects.label')}
     </div>
 
@@ -334,8 +334,8 @@ const skillColors: Record<string, string> = {
             )}
           </div>
           <div class="terminal-content">
-            <div class="font-mono text-[10px] mb-2" style="color: rgba(200,216,248,0.35);">{proj.company} · {proj.period}</div>
-            <p class="font-sans text-sm leading-relaxed mb-4" style="color: rgba(200,216,248,0.75);">{proj.description[lang]}</p>
+            <div class="font-mono text-[10px] mb-2" style="color: var(--text-dim);">{proj.company} · {proj.period}</div>
+            <p class="font-sans text-sm leading-relaxed mb-4" style="color: var(--text-body);">{proj.description[lang]}</p>
             <div class="flex flex-wrap gap-1">
               {proj.skills.map((s) => (
                 <span class="skill-tag py-0.5 px-1.5 text-[9px]">{s}</span>
@@ -355,7 +355,7 @@ const skillColors: Record<string, string> = {
 <section id="skills" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span style="color: #00d4ff;">❯</span> {t('skills.label')}
     </div>
 
@@ -367,7 +367,7 @@ const skillColors: Record<string, string> = {
           {Object.entries(profile.skills).map(([category, items], i) => (
             <div class={`animate-fade-in-up delay-${(i + 1) * 100}`}>
               <div class="font-mono text-xs mb-3 flex items-center gap-2"
-                   style="color: rgba(0,212,255,0.5);">
+                   style="color: var(--cyan-soft);">
                 <span style="color: rgba(0,212,255,0.3);">//</span>
                 {t(('skills.' + category) as any)}
                 <span class="font-mono text-[10px] ml-auto" style="color: rgba(200,216,248,0.25);">
@@ -399,7 +399,7 @@ const skillColors: Record<string, string> = {
   <section id="testimonials" class="px-8 py-20">
     <div class="max-w-5xl mx-auto">
 
-      <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+      <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
         <span style="color: #00d4ff;">❯</span> {t('testimonials.label')}
       </div>
 
@@ -410,8 +410,8 @@ const skillColors: Record<string, string> = {
               <span style="flex: 1;">{item.name}</span>
             </div>
             <div class="terminal-content">
-              <div class="font-mono text-[10px] mb-3" style="color: rgba(0,212,255,0.5);">{item.role[lang]}</div>
-              <blockquote class="font-sans text-sm leading-relaxed italic" style="color: rgba(200,216,248,0.8);">
+              <div class="font-mono text-[10px] mb-3" style="color: var(--cyan-soft);">{item.role[lang]}</div>
+              <blockquote class="font-sans text-sm leading-relaxed italic" style="color: var(--text-body);">
                 <span style="color: rgba(0,212,255,0.3);">"</span>{item.text[lang]}<span style="color: rgba(0,212,255,0.3);">"</span>
               </blockquote>
             </div>
@@ -429,7 +429,7 @@ const skillColors: Record<string, string> = {
 <section id="contact" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <div class="section-label font-mono text-sm mb-8" style="color: rgba(0,212,255,0.5);">
+    <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span style="color: #00d4ff;">❯</span> {t('contact.label')}
     </div>
 
@@ -439,9 +439,9 @@ const skillColors: Record<string, string> = {
 
         <!-- Available status -->
         <div class="flex items-center gap-3 mb-6 p-3 rounded-md"
-             style="background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.15);">
+             style="background: var(--bg-green-08); border: 1px solid var(--border-green-15);">
           <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background: #00ff88; box-shadow: 0 0 8px #00ff88;"></span>
-          <span class="font-mono text-sm" style="color: rgba(0,255,136,0.8);">{t('contact.available')}</span>
+          <span class="font-mono text-sm" style="color: var(--green-bright);">{t('contact.available')}</span>
         </div>
 
         <!-- Contact links -->
@@ -449,55 +449,55 @@ const skillColors: Record<string, string> = {
 
           <a href={`mailto:${profile.email}`}
              class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid rgba(0,212,255,0.1);"
+             style="border: 1px solid var(--border-cyan-10);"
              onmouseover="this.style.background='rgba(0,212,255,0.05)'; this.style.borderColor='rgba(0,212,255,0.3)'"
              onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
           >
-            <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(0,212,255,0.4);">$</span>
-            <span class="font-mono text-xs flex-shrink-0" style="color: rgba(0,212,255,0.5);">open</span>
+            <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: var(--cyan-dim);">$</span>
+            <span class="font-mono text-xs flex-shrink-0" style="color: var(--cyan-soft);">open</span>
             <span class="font-mono text-sm font-medium" style="color: #00d4ff;">{profile.email}</span>
-            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: rgba(0,212,255,0.5);">↗</span>
+            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: var(--cyan-soft);">↗</span>
           </a>
 
           <a href={profile.linkedin} target="_blank" rel="noopener"
              class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid rgba(0,212,255,0.1);"
+             style="border: 1px solid var(--border-cyan-10);"
              onmouseover="this.style.background='rgba(0,212,255,0.05)'; this.style.borderColor='rgba(0,212,255,0.3)'"
              onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
           >
-            <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(0,212,255,0.4);">$</span>
-            <span class="font-mono text-xs flex-shrink-0" style="color: rgba(0,212,255,0.5);">open</span>
-            <span class="font-mono text-sm font-medium" style="color: #c8d8f8;">linkedin.com/in/mariarodriguezrojo</span>
-            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: rgba(0,212,255,0.5);">↗</span>
+            <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: var(--cyan-dim);">$</span>
+            <span class="font-mono text-xs flex-shrink-0" style="color: var(--cyan-soft);">open</span>
+            <span class="font-mono text-sm font-medium" style="color: var(--text-bright);">linkedin.com/in/mariarodriguezrojo</span>
+            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: var(--cyan-soft);">↗</span>
           </a>
 
           <a href={profile.github.url} target="_blank" rel="noopener"
              class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid rgba(0,212,255,0.1);"
+             style="border: 1px solid var(--border-cyan-10);"
              onmouseover="this.style.background='rgba(191,0,255,0.05)'; this.style.borderColor='rgba(191,0,255,0.3)'"
              onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(191,0,255,0.4);">$</span>
-            <span class="font-mono text-xs flex-shrink-0" style="color: rgba(191,0,255,0.5);">open</span>
-            <span class="font-mono text-sm font-medium" style="color: #c8d8f8;">github.com/mRoRo</span>
-            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: rgba(191,0,255,0.5);">↗</span>
+            <span class="font-mono text-xs flex-shrink-0" style="color: var(--purple-mid);">open</span>
+            <span class="font-mono text-sm font-medium" style="color: var(--text-bright);">github.com/mRoRo</span>
+            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: var(--purple-mid);">↗</span>
           </a>
 
           <a href="https://twitter.com/MariaRRojo" target="_blank" rel="noopener"
              class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid rgba(0,212,255,0.1);"
+             style="border: 1px solid var(--border-cyan-10);"
              onmouseover="this.style.background='rgba(191,0,255,0.05)'; this.style.borderColor='rgba(191,0,255,0.3)'"
              onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(191,0,255,0.4);">$</span>
-            <span class="font-mono text-xs flex-shrink-0" style="color: rgba(191,0,255,0.5);">open</span>
-            <span class="font-mono text-sm font-medium" style="color: #c8d8f8;">@MariaRRojo</span>
-            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: rgba(191,0,255,0.5);">↗</span>
+            <span class="font-mono text-xs flex-shrink-0" style="color: var(--purple-mid);">open</span>
+            <span class="font-mono text-sm font-medium" style="color: var(--text-bright);">@MariaRRojo</span>
+            <span class="ml-auto font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style="color: var(--purple-mid);">↗</span>
           </a>
         </div>
 
         <!-- Closing prompt -->
-        <div class="mt-6 font-mono text-xs cursor-blink" style="color: rgba(0,212,255,0.4);">
+        <div class="mt-6 font-mono text-xs cursor-blink" style="color: var(--cyan-dim);">
           connection_ready
         </div>
       </div>
@@ -518,7 +518,7 @@ const skillColors: Record<string, string> = {
       {t('footer.made')} 🧡
       <a href="https://webreactiva.com" target="_blank" rel="noopener"
          class="transition-colors hover:text-[#00d4ff]"
-         style="color: rgba(0,212,255,0.5);">
+         style="color: var(--cyan-soft);">
         {t('footer.by')}
       </a>
     </div>

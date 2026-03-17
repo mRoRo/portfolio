@@ -119,12 +119,12 @@ const ogImage = `${siteUrl}/og-image.png`;
     <!-- Logo / Identity -->
     <div class="p-6 pb-4" style="border-bottom: 1px solid rgba(0,212,255,0.08);">
       <a href="#hero" class="block group">
-        <div class="font-mono text-xs mb-1" style="color: rgba(0,212,255,0.5);">// developer</div>
+        <div class="font-mono text-xs mb-1" style="color: var(--cyan-soft);">// developer</div>
         <div class="font-display font-semibold text-lg leading-tight group-hover:text-[#00d4ff] transition-colors duration-200"
-             style="letter-spacing: -0.02em; color: #c8d8f8;">
+             style="letter-spacing: -0.02em; color: var(--text-bright);">
           mRoRo
         </div>
-        <div class="font-mono text-xs mt-1 animate-neon-pulse" style="color: rgba(0,212,255,0.7);">
+        <div class="font-mono text-xs mt-1 animate-neon-pulse" style="color: var(--cyan-mid);">
           {profile.headline[lang]}
         </div>
       </a>
@@ -133,45 +133,44 @@ const ogImage = `${siteUrl}/og-image.png`;
     <!-- Online badge -->
     <div class="px-6 py-3 flex items-center gap-2">
       <span class="inline-block w-2 h-2 rounded-full" style="background: #00ff88; box-shadow: 0 0 6px #00ff88;"></span>
-      <span class="font-mono text-xs" style="color: rgba(0,255,136,0.7);">{profile.badge[lang]}</span>
+      <span class="font-mono text-xs" style="color: var(--green-mid);">{profile.badge[lang]}</span>
     </div>
 
     <!-- Navigation -->
     <nav class="flex-1 px-4 py-2 overflow-y-auto">
-      <div class="font-mono text-xs mb-3 px-3" style="color: rgba(0,212,255,0.35); letter-spacing: 0.08em;">NAVIGATE</div>
+      <div class="font-mono text-xs mb-3 px-3" style="color: var(--cyan-dim); letter-spacing: 0.08em;">NAVIGATE</div>
       <a href="#about" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">◈</span>
+        <span style="color: var(--cyan-dim);">◈</span>
         {t('nav.about')}
       </a>
       <a href="#experience" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">◉</span>
+        <span style="color: var(--cyan-dim);">◉</span>
         {t('nav.experience')}
       </a>
       <a href="#projects" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">◆</span>
+        <span style="color: var(--cyan-dim);">◆</span>
         {t('nav.projects')}
       </a>
       <a href="#skills" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">◇</span>
+        <span style="color: var(--cyan-dim);">◇</span>
         {t('nav.skills')}
       </a>
       <a href="#contact" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">◎</span>
+        <span style="color: var(--cyan-dim);">◎</span>
         {t('nav.contact')}
       </a>
 
-      <!-- Social links -->
-      <div class="font-mono text-xs mt-6 mb-3 px-3" style="color: rgba(0,212,255,0.35); letter-spacing: 0.08em;">CONNECT</div>
+      <div class="font-mono text-xs mt-6 mb-3 px-3" style="color: var(--cyan-dim); letter-spacing: 0.08em;">CONNECT</div>
       <a href={profile.github.url} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        <span style="color: var(--cyan-dim);">⌥</span>
         GitHub
       </a>
       <a href={profile.linkedin} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        <span style="color: var(--cyan-dim);">⌥</span>
         LinkedIn
       </a>
       <a href={`https://twitter.com/MariaRRojo`} target="_blank" rel="noopener" class="sidebar-link mb-1">
-        <span style="color: rgba(0,212,255,0.4);">⌥</span>
+        <span style="color: var(--cyan-dim);">⌥</span>
         X / Twitter
       </a>
     </nav>
@@ -184,7 +183,7 @@ const ogImage = `${siteUrl}/og-image.png`;
           id="theme-toggle"
           aria-label="Toggle theme"
           class="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-md font-mono text-xs transition-all duration-200"
-          style="background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); color: rgba(0,212,255,0.7);"
+          style="background: var(--bg-cyan-05); border: 1px solid var(--border-cyan-15); color: var(--cyan-mid);"
         >
           <span id="theme-icon">☾</span>
           <span id="theme-label">Dark</span>
