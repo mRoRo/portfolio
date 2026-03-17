@@ -148,6 +148,28 @@
       "highlight": false
     },
     {
+      "name": "CovClear",
+      "description": {
+        "en": "COVID-19 workplace safety platform developed at GMV. Daily health self-assessment, travel-to-restricted-areas tracking and access control for a safe return to work. iOS, Android and web admin panel. GDPR compliant.",
+        "es": "Plataforma de seguridad laboral COVID-19 desarrollada en GMV. Autoevaluación médica diaria, registro de viajes a zonas restringidas y control de accesos para una vuelta al trabajo segura. iOS, Android y panel web de administración. Conforme al RGPD."
+      },
+      "skills": ["Swift", "iOS", "Android", "GDPR", "Healthcare"],
+      "period": "2020",
+      "company": "GMV",
+      "highlight": false
+    },
+    {
+      "name": "ownCloud iOS",
+      "description": {
+        "en": "Contributed to the ownCloud open-source iOS client. Cloud storage and file synchronization for enterprise users worldwide.",
+        "es": "Contribución al cliente iOS open-source de ownCloud. Almacenamiento en la nube y sincronización de ficheros para usuarios empresariales de todo el mundo."
+      },
+      "skills": ["Swift", "Objective-C", "ownCloud", "Open Source"],
+      "period": "2015 – 2016",
+      "company": "Solid Gear",
+      "highlight": false
+    },
+    {
       "name": "APG Cash Drawer",
       "description": {
         "en": "iOS & Android apps with Bluetooth MFI for retail POS systems. Built under Apple's MFI program for hardware communication.",
