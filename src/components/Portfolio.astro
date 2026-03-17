@@ -125,7 +125,7 @@ const skillColors: Record<string, string> = {
             <div class="flex items-baseline gap-2">
               <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-sm font-semibold cursor-blink" style="color: var(--text-bright); line-height:1.4;">{profile.location}</div>
+                <div class="font-mono text-sm font-semibold cursor-blink" style="color: var(--text-bright); line-height:1.4;">{profile.location[lang]}</div>
                 <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.location')}</div>
               </div>
             </div>
@@ -151,7 +151,7 @@ const skillColors: Record<string, string> = {
     <div class="animate-fade-in-up delay-700 mt-10 flex items-center gap-2 font-mono text-xs"
          style="color: var(--text-dim);">
       <span style="color: var(--cyan-dim);">◈</span>
-      {profile.location}
+      {profile.location[lang]}
       <span class="mx-2" style="color: rgba(0,212,255,0.2);">|</span>
       <a href={`mailto:${profile.email}`} style="color: var(--cyan-soft);" class="hover:text-[#00d4ff] transition-colors">{profile.email}</a>
     </div>
@@ -391,37 +391,6 @@ const skillColors: Record<string, string> = {
 
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     TESTIMONIALS
-     ═══════════════════════════════════════════════════════════ -->
-{profile.testimonials && profile.testimonials.length > 0 && (
-  <section id="testimonials" class="px-8 py-20">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
-        <span style="color: #00d4ff;">❯</span> {t('testimonials.label')}
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4">
-        {profile.testimonials.map((item, i) => (
-          <div class={`animate-fade-in-up delay-${(i + 1) * 100} terminal-window`}>
-            <div class="terminal-bar">
-              <span style="flex: 1;">{item.name}</span>
-            </div>
-            <div class="terminal-content">
-              <div class="font-mono text-[10px] mb-3" style="color: var(--cyan-soft);">{item.role[lang]}</div>
-              <blockquote class="font-sans text-sm leading-relaxed italic" style="color: var(--text-body);">
-                <span style="color: rgba(0,212,255,0.3);">"</span>{item.text[lang]}<span style="color: rgba(0,212,255,0.3);">"</span>
-              </blockquote>
-            </div>
-          </div>
-        ))}
-      </div>
-
-    </div>
-  </section>
-)}
 
 <!-- ═══════════════════════════════════════════════════════════
      CONTACT

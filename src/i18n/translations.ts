@@ -10,6 +10,8 @@ export const ui = {
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
+    'nav.section.navigate': 'NAVIGATE',
+    'nav.section.connect': 'CONNECT',
 
     // Hero
     'hero.cta.contact': 'Contact me',
@@ -47,9 +49,6 @@ export const ui = {
     'skills.architecture': 'Architecture',
     'skills.other': 'Other',
 
-    // Testimonials
-    'testimonials.label': '~/testimonials.log',
-
     // Contact
     'contact.label': '~/contact.sh',
     'contact.available': 'Available for new opportunities',
@@ -74,6 +73,8 @@ export const ui = {
     'nav.projects': 'Proyectos',
     'nav.skills': 'Habilidades',
     'nav.contact': 'Contacto',
+    'nav.section.navigate': 'NAVEGAR',
+    'nav.section.connect': 'CONECTAR',
 
     // Hero
     'hero.cta.contact': 'Contactar',
@@ -110,9 +111,6 @@ export const ui = {
     'skills.ai': 'Herramientas IA',
     'skills.architecture': 'Arquitectura',
     'skills.other': 'Otros',
-
-    // Testimonials
-    'testimonials.label': '~/recomendaciones.log',
 
     // Contact
     'contact.label': '~/contacto.sh',
