@@ -5,6 +5,8 @@ import profile from '../content/profile.json';
 import { useTranslations } from '../i18n/translations';
 import '../styles/global.css';
 
+const { siteUrl } = siteConfig;
+
 interface Props {
   lang: Lang;
   title?: string;
@@ -30,6 +32,8 @@ const navLinks = [
 
 const pageTitle = title || `${profile.name} — ${profile.headline[lang]}`;
 const pageDescription = description || profile.heroDescription[lang];
+const canonicalUrl = lang === siteConfig.defaultLang ? siteUrl : `${siteUrl}/${lang}/`;
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <!DOCTYPE html>
@@ -40,9 +44,39 @@ const pageDescription = description || profile.heroDescription[lang];
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
   <meta name="author" content={profile.name} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={pageDescription} />
-  <meta property="og:type" content="website" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+  <meta property="og:site_name" content={profile.name} />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@MariaRRojo" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": profile.name,
+    "jobTitle": profile.headline[lang],
+    "description": pageDescription,
+    "url": canonicalUrl,
+    "email": profile.email,
+    "address": { "@type": "PostalAddress", "addressLocality": "Valladolid", "addressCountry": "ES" },
+    "sameAs": [profile.linkedin, profile.github.url, "https://twitter.com/MariaRRojo"],
+    "knowsAbout": ["iOS Development", "Swift", "SwiftUI", "UIKit", "Mobile Development"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad de Valladolid" }
+  })} />
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
