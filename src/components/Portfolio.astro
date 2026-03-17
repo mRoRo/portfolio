@@ -62,7 +62,7 @@ const skillColors: Record<string, string> = {
         </div>
 
         <!-- Subheadline -->
-        <div class="animate-fade-in-up delay-400 font-mono text-sm mb-6" style="color: rgba(200, 216, 248, 0.5);">
+        <div class="animate-fade-in-up delay-400 font-mono text-sm mb-6" style="color: var(--text-muted);">
           <span style="color: var(--cyan-dim);">//</span> {profile.subheadline[lang]}
         </div>
 
@@ -330,7 +330,7 @@ const skillColors: Record<string, string> = {
           <div class="terminal-bar" style={proj.highlight ? "border-bottom-color: rgba(0,212,255,0.3)" : ""}>
             <span style="flex: 1;">{proj.name}</span>
             {proj.highlight && (
-              <span class="font-mono text-[9px]" style="color: rgba(0,255,136,0.7);">★ {t('projects.highlight')}</span>
+              <span class="font-mono text-[9px]" style="color: var(--green-bright);">★ {t('projects.highlight')}</span>
             )}
           </div>
           <div class="terminal-content">
