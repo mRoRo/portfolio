@@ -17,10 +17,15 @@
   --color-border-dark: #1a1a3a;
 
   /* Light mode surfaces (day-mode cyberpunk: deep navy) */
-  --color-bg-light: #080d2a;
-  --color-surface-light: #0e1540;
-  --color-surface-2-light: #141d52;
-  --color-border-light: #1e2a60;
+  --color-bg-light: #f0f4ff;
+  --color-surface-light: #e8eeff;
+  --color-surface-2-light: #dde5ff;
+  --color-border-light: rgba(30, 80, 220, 0.2);
+  
+  /* Light mode text colors */
+  --color-text-primary-light: #0f1545;
+  --color-text-muted-light: #4a558a;
+  --color-text-dim-light: #6a7ba0;
 
   /* Text */
   --color-text-primary: #c8d8f8;
@@ -53,7 +58,8 @@ body {
 }
 
 body.light {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-light) !important;
+  color: var(--color-text-primary-light) !important;
 }
 
 /* =====================================================
@@ -79,7 +85,17 @@ body.light {
 
 .light .terminal-window {
   background: var(--color-surface-light);
-  border-color: rgba(0, 212, 255, 0.3);
+  border-color: var(--color-border-light);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 0 10px rgba(30, 80, 220, 0.02);
+}
+
+.light .terminal-window:hover {
+  border-color: rgba(30, 80, 220, 0.3);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.06),
+    0 0 15px rgba(30, 80, 220, 0.08);
 }
 
 .terminal-window:hover {
@@ -106,6 +122,8 @@ body.light {
 
 .light .terminal-bar {
   background: var(--color-surface-2-light);
+  border-bottom-color: var(--color-border-light);
+  color: #0077b6;
 }
 
 .terminal-bar::before {
@@ -222,6 +240,17 @@ body.light {
   pointer-events: none;
 }
 
+.light .scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(30, 80, 220, 0.02) 3px,
+    rgba(30, 80, 220, 0.02) 4px
+  );
+  opacity: 0.15;
+}
+
 /* =====================================================
    ANIMATIONS
    ===================================================== */
@@ -303,6 +332,12 @@ body.light {
   letter-spacing: 0.03em;
 }
 
+.light .skill-tag {
+  border-color: rgba(0, 119, 182, 0.3);
+  background: rgba(0, 119, 182, 0.08);
+  color: #0077b6;
+}
+
 .skill-tag:hover {
   border-color: rgba(0, 212, 255, 0.6);
   background: rgba(0, 212, 255, 0.12);
@@ -310,11 +345,25 @@ body.light {
   color: var(--color-neon);
 }
 
+.light .skill-tag:hover {
+  border-color: rgba(0, 119, 182, 0.5);
+  background: rgba(0, 119, 182, 0.15);
+  box-shadow: 0 0 8px rgba(0, 119, 182, 0.15);
+  color: #005f99;
+}
+
 .skill-tag-purple {
   border-color: rgba(191, 0, 255, 0.25);
   background: rgba(191, 0, 255, 0.05);
   color: rgba(191, 0, 255, 0.85);
 }
+
+.light .skill-tag-purple {
+  border-color: rgba(150, 0, 204, 0.3);
+  background: rgba(150, 0, 204, 0.08);
+  color: #9600cc;
+}
+
 .skill-tag-purple:hover {
   border-color: rgba(191, 0, 255, 0.6);
   background: rgba(191, 0, 255, 0.12);
@@ -322,11 +371,25 @@ body.light {
   color: var(--color-neon-purple);
 }
 
+.light .skill-tag-purple:hover {
+  border-color: rgba(150, 0, 204, 0.5);
+  background: rgba(150, 0, 204, 0.15);
+  box-shadow: 0 0 8px rgba(150, 0, 204, 0.15);
+  color: #7a00a3;
+}
+
 .skill-tag-green {
   border-color: rgba(0, 255, 136, 0.25);
   background: rgba(0, 255, 136, 0.05);
   color: rgba(0, 255, 136, 0.85);
 }
+
+.light .skill-tag-green {
+  border-color: rgba(0, 179, 95, 0.3);
+  background: rgba(0, 179, 95, 0.08);
+  color: #00b35f;
+}
+
 .skill-tag-green:hover {
   border-color: rgba(0, 255, 136, 0.6);
   background: rgba(0, 255, 136, 0.12);
@@ -334,16 +397,37 @@ body.light {
   color: var(--color-neon-green);
 }
 
+.light .skill-tag-green:hover {
+  border-color: rgba(0, 179, 95, 0.5);
+  background: rgba(0, 179, 95, 0.15);
+  box-shadow: 0 0 8px rgba(0, 179, 95, 0.15);
+  color: #008f4c;
+}
+
 .skill-tag-amber {
   border-color: rgba(255, 170, 0, 0.25);
   background: rgba(255, 170, 0, 0.05);
   color: rgba(255, 170, 0, 0.85);
 }
+
+.light .skill-tag-amber {
+  border-color: rgba(204, 136, 0, 0.3);
+  background: rgba(204, 136, 0, 0.08);
+  color: #cc8800;
+}
+
 .skill-tag-amber:hover {
   border-color: rgba(255, 170, 0, 0.6);
   background: rgba(255, 170, 0, 0.12);
   box-shadow: 0 0 8px rgba(255, 170, 0, 0.2);
   color: #ffaa00;
+}
+
+.light .skill-tag-amber:hover {
+  border-color: rgba(204, 136, 0, 0.5);
+  background: rgba(204, 136, 0, 0.15);
+  box-shadow: 0 0 8px rgba(204, 136, 0, 0.15);
+  color: #a36d00;
 }
 
 /* =====================================================
@@ -433,4 +517,57 @@ body.light {
 ::selection {
   background: rgba(0, 212, 255, 0.25);
   color: var(--color-neon);
+}
+
+/* =====================================================
+   LIGHT MODE — SIDEBAR & MOBILE NAV
+   (inline styles need !important to be overridden)
+   ===================================================== */
+body.light aside {
+  background: var(--color-surface-2-light) !important;
+  border-right-color: var(--color-border-light) !important;
+}
+
+body.light nav.mobile-nav {
+  background: var(--color-surface-2-light) !important;
+  border-top-color: var(--color-border-light) !important;
+}
+
+body.light .sidebar-link {
+  color: var(--color-text-muted-light);
+}
+
+body.light .sidebar-link:hover,
+body.light .sidebar-link.active {
+  color: #0055aa;
+  background: rgba(0, 119, 182, 0.08);
+  border-color: rgba(0, 119, 182, 0.2);
+  text-shadow: none;
+}
+
+/* =====================================================
+   LIGHT MODE — INLINE TEXT OVERRIDES
+   The component uses rgba(200,216,248,...) which is
+   near-white — invisible on light backgrounds.
+   These overrides target the key content containers.
+   ===================================================== */
+body.light .terminal-content p,
+body.light .terminal-content blockquote {
+  color: var(--color-text-primary-light) !important;
+}
+
+body.light .font-sans {
+  color: var(--color-text-primary-light);
+}
+
+body.light ::-webkit-scrollbar-track {
+  background: var(--color-bg-light);
+}
+
+body.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 119, 182, 0.3);
+}
+
+body.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 119, 182, 0.6);
 }
