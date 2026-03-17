@@ -9,6 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const yearsExperience = new Date().getFullYear() - profile.careerStartYear;
 
 const skillColors: Record<string, string> = {
   languages: '',
@@ -100,7 +101,7 @@ const skillColors: Record<string, string> = {
             <div class="flex items-baseline gap-2">
               <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-2xl font-semibold" style="color: var(--cyan); line-height:1;">{profile.yearsExperience}+</div>
+                <div class="font-mono text-2xl font-semibold" style="color: var(--cyan); line-height:1;">{yearsExperience}+</div>
                 <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.experience')}</div>
               </div>
             </div>
@@ -463,10 +464,10 @@ const skillColors: Record<string, string> = {
      ═══════════════════════════════════════════════════════════ -->
 <footer class="px-8 py-10 mt-8" style="border-top: 1px solid rgba(0,212,255,0.08);">
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="font-mono text-xs" style="color: rgba(200,216,248,0.3);">
+    <div class="font-mono text-xs" style="color: var(--text-dim);">
       © {new Date().getFullYear()} {profile.name}
     </div>
-    <div class="font-mono text-xs flex items-center gap-1" style="color: rgba(200,216,248,0.3);">
+    <div class="font-mono text-xs flex items-center gap-1" style="color: var(--text-dim);">
       {t('footer.made')} 🧡
       <a href="https://webreactiva.com" target="_blank" rel="noopener"
          class="transition-colors hover:text-[var(--cyan)]"

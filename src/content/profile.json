@@ -42,7 +42,6 @@
   },
   "linkedin": "https://www.linkedin.com/in/mariarodriguezrojo/",
   "twitter": "https://twitter.com/MariaRRojo",
-  "yearsExperience": 12,
   "experience": [
     {
       "company": "Minddistrict",
@@ -424,5 +423,6 @@
       "Viajes",
       "Series de TV"
     ]
-  }
+  },
+  "careerStartYear": 2013
 }
