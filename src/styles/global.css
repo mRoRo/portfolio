@@ -137,14 +137,19 @@ body.light {
   color: var(--color-text-primary-light) !important;
 }
 
-body.light * {
+body.light .glitch,
+body.light .neon-text,
+body.light .animate-neon-pulse {
   text-shadow: none !important;
-  box-shadow: none !important;
 }
 
-body.light .terminal-window,
-body.light .terminal-window:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+body.light .terminal-window {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+body.light .neon-glow,
+body.light .neon-border {
+  box-shadow: none;
 }
 
 /* =====================================================
@@ -712,4 +717,12 @@ body.light ::-webkit-scrollbar-thumb:hover {
   border-color: var(--border-cyan-30);
   outline: 2px solid var(--cyan-dim);
   outline-offset: 2px;
+}
+
+/* =====================================================
+   TEXT RESILIENCE — overflow & wrapping
+   ===================================================== */
+.terminal-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }

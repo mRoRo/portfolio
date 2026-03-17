@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { siteConfig, type Lang } from '../config';
 import profile from '../content/profile.json';
 import { useTranslations } from '../i18n/translations';
@@ -81,7 +81,7 @@ const ogImage = `${siteUrl}/og-image.png`;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <ViewTransitions />
+  <ClientRouter />
 
   <!-- No-flash theme init -->
   <script is:inline>
@@ -318,6 +318,17 @@ const ogImage = `${siteUrl}/og-image.png`;
     );
 
     sections.forEach(s => observer.observe(s));
+
+    const glitchEl = document.querySelector('.glitch');
+    if (glitchEl) {
+      const glitchObserver = new IntersectionObserver(
+        ([entry]) => {
+          (glitchEl as HTMLElement).style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+        },
+        { threshold: 0 }
+      );
+      glitchObserver.observe(glitchEl);
+    }
   </script>
 
 </body>
