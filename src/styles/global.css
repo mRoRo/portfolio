@@ -52,6 +52,7 @@
   --cyan-soft:     rgba(0,212,255,0.5);
   --cyan-dim:      rgba(0,212,255,0.4);
 
+  --green-pure:    #00ff88;
   --green-bright:  rgba(0,255,136,0.9);
   --green-mid:     rgba(0,255,136,0.7);
 
@@ -87,6 +88,7 @@ body.light {
   --cyan-soft:     #0284c7;
   --cyan-dim:      #38bdf8;
 
+  --green-pure:    #059669;
   --green-bright:  #059669;
   --green-mid:     #10b981;
 

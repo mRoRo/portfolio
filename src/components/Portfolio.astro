@@ -31,7 +31,7 @@ const skillColors: Record<string, string> = {
     <div class="animate-fade-in-up delay-100 mb-6">
       <span class="inline-flex items-center gap-2 font-mono text-xs py-1.5 px-4 rounded-full"
             style="background: var(--bg-green-08); border: 1px solid var(--border-green-30); color: var(--green-bright);">
-        <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #00ff88; box-shadow: 0 0 6px #00ff88;"></span>
+        <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: var(--green-pure);"></span>
         {profile.badge[lang]}
       </span>
     </div>
@@ -43,7 +43,7 @@ const skillColors: Record<string, string> = {
       <div>
         <!-- Prompt line -->
         <div class="animate-fade-in-up delay-100 font-mono text-sm mb-3" style="color: var(--cyan-soft);">
-          <span style="color: #00ff88;">❯</span> whoami
+          <span style="color: var(--green-pure);">❯</span> whoami
         </div>
 
         <!-- Glitch name -->
@@ -63,7 +63,7 @@ const skillColors: Record<string, string> = {
 
         <!-- Subheadline -->
         <div class="animate-fade-in-up delay-400 font-mono text-sm mb-6" style="color: var(--text-muted);">
-          <span style="color: var(--cyan-dim);">//</span> {profile.subheadline[lang]}
+          // {profile.subheadline[lang]}
         </div>
 
         <!-- Description -->
@@ -115,7 +115,7 @@ const skillColors: Record<string, string> = {
             <div class="flex items-baseline gap-2">
               <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-2xl font-semibold" style="color: #00ff88; line-height:1;">6+</div>
+                <div class="font-mono text-2xl font-semibold" style="color: var(--green-pure); line-height:1;">6+</div>
                 <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.projects')}</div>
               </div>
             </div>
@@ -284,7 +284,7 @@ const skillColors: Record<string, string> = {
                   </div>
                   {exp.current && (
                     <span class="font-mono text-[10px] py-1 px-2 rounded flex-shrink-0"
-                          style="background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00ff88;">
+                          style="background: var(--bg-green-08); border: 1px solid var(--border-green-30); color: var(--green-pure);">
                       {t('experience.current')}
                     </span>
                   )}
@@ -440,7 +440,7 @@ const skillColors: Record<string, string> = {
         <!-- Available status -->
         <div class="flex items-center gap-3 mb-6 p-3 rounded-md"
              style="background: var(--bg-green-08); border: 1px solid var(--border-green-15);">
-          <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background: #00ff88; box-shadow: 0 0 8px #00ff88;"></span>
+          <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background: var(--green-pure);"></span>
           <span class="font-mono text-sm" style="color: var(--green-bright);">{t('contact.available')}</span>
         </div>
 
