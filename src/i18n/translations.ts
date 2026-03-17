@@ -43,6 +43,7 @@ export const ui = {
     'skills.frameworks': 'Frameworks',
     'skills.libraries': 'Libraries',
     'skills.tools': 'Tools',
+    'skills.ai': 'AI Tools',
     'skills.architecture': 'Architecture',
     'skills.other': 'Other',
 
@@ -103,6 +104,7 @@ export const ui = {
     'skills.frameworks': 'Frameworks',
     'skills.libraries': 'Librerías',
     'skills.tools': 'Herramientas',
+    'skills.ai': 'Herramientas IA',
     'skills.architecture': 'Arquitectura',
     'skills.other': 'Otros',
 

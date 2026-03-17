@@ -334,6 +334,18 @@ body.light {
   color: var(--color-neon-green);
 }
 
+.skill-tag-amber {
+  border-color: rgba(255, 170, 0, 0.25);
+  background: rgba(255, 170, 0, 0.05);
+  color: rgba(255, 170, 0, 0.85);
+}
+.skill-tag-amber:hover {
+  border-color: rgba(255, 170, 0, 0.6);
+  background: rgba(255, 170, 0, 0.12);
+  box-shadow: 0 0 8px rgba(255, 170, 0, 0.2);
+  color: #ffaa00;
+}
+
 /* =====================================================
    SIDEBAR STYLES
    ===================================================== */

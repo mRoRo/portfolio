@@ -10,8 +10,8 @@
     "es": "Desarrolladora iOS Senior"
   },
   "subheadline": {
-    "en": "12+ years crafting iOS apps that matter",
-    "es": "12+ años creando apps iOS que importan"
+    "en": "Swift, SwiftUI, UIKit — bugs firmly under control. 12+ years surviving Xcode",
+    "es": "Swift, SwiftUI, UIKit y bugs bien controlados. Más de 12 años sobreviviendo a Xcode"
   },
   "heroDescription": {
     "en": "Accomplished iOS Developer with 12+ years of experience across healthcare, transportation, and enterprise sectors. Building user-centric solutions across Europe.",
@@ -161,9 +161,10 @@
   ],
   "skills": {
     "languages": ["Swift", "Objective-C"],
-    "frameworks": ["UIKit", "SwiftUI", "Combine", "Core Data", "CoreBluetooth", "Core Location", "MapKit", "AVFoundation", "XCTest", "Observation"],
+    "frameworks": ["UIKit", "SwiftUI", "Combine", "Core Data", "CoreBluetooth", "Core Location", "MapKit", "AVFoundation", "XCTest", "Observation", "KMP"],
     "libraries": ["RxSwift", "ReactiveSwift", "Kingfisher", "Alamofire", "Realm", "SnapKit", "Protobuf", "Quick", "Nimble", "SnapshotTesting"],
-    "tools": ["Xcode", "Git", "Fastlane", "TestFlight", "CocoaPods", "Swift Package Manager"],
+    "tools": ["Xcode", "Git", "Fastlane", "TestFlight", "CocoaPods", "Swift Package Manager", "Jenkins", "GitLab"],
+    "ai": ["Claude Code", "GitHub Copilot"],
     "architecture": ["MVVM", "Clean Architecture", "SOLID", "Protocol-Oriented Programming"],
     "other": ["RESTful APIs", "SDUI", "Bluetooth MFI", "Push Notifications", "CI/CD", "Agile/Scrum", "Accessibility (VoiceOver)", "GDPR", "Feature Flags", "SDK Development"]
   },
