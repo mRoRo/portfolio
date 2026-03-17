@@ -670,3 +670,46 @@ body.light ::-webkit-scrollbar-thumb:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* =====================================================
+   CTA BUTTONS — replaces inline onmouseover JS
+   ===================================================== */
+.cta-btn-cyan {
+  background: var(--bg-cyan-10);
+  border: 1px solid var(--border-cyan-40);
+  color: var(--cyan);
+}
+.cta-btn-cyan:hover,
+.cta-btn-cyan:focus-visible {
+  background: var(--bg-cyan-08);
+  border-color: var(--cyan-soft);
+  outline: 2px solid var(--cyan-dim);
+  outline-offset: 2px;
+}
+
+.cta-btn-purple {
+  background: var(--bg-purple-08);
+  border: 1px solid var(--border-purple-30);
+  color: var(--purple-bright);
+}
+.cta-btn-purple:hover,
+.cta-btn-purple:focus-visible {
+  background: var(--bg-purple-05);
+  border-color: var(--purple-bright);
+  outline: 2px solid var(--purple-mid);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   CONTACT LINKS — replaces inline onmouseover JS
+   ===================================================== */
+.contact-link {
+  border: 1px solid var(--border-cyan-10);
+}
+.contact-link:hover,
+.contact-link:focus-visible {
+  background: var(--bg-cyan-05);
+  border-color: var(--border-cyan-30);
+  outline: 2px solid var(--cyan-dim);
+  outline-offset: 2px;
+}

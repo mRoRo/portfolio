@@ -228,6 +228,16 @@ const ogImage = `${siteUrl}/og-image.png`;
       <span class="text-base" aria-hidden="true">◎</span>
       <span class="font-mono text-[10px]">{t('nav.contact')}</span>
     </a>
+    <!-- Mobile theme toggle -->
+    <button
+      id="theme-toggle-mobile"
+      aria-label="Toggle theme"
+      class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors"
+      style="color: rgba(0,212,255,0.6); background: none; border: none; cursor: pointer;"
+    >
+      <span class="text-base" id="theme-icon-mobile" aria-hidden="true">☾</span>
+      <span class="font-mono text-[10px]" id="theme-label-mobile">Dark</span>
+    </button>
     <!-- Mobile lang toggle -->
     <a href={otherLangUrl} class="flex flex-col items-center gap-0.5 p-2 rounded-lg" style="color: rgba(191,0,255,0.8);">
       <span class="text-base" aria-hidden="true">⌘</span>
@@ -259,6 +269,10 @@ const ogImage = `${siteUrl}/og-image.png`;
       localStorage.setItem('theme', dark ? 'dark' : 'light');
       if (icon) icon.textContent = dark ? '☾' : '☀';
       if (label) label.textContent = dark ? 'Dark' : 'Light';
+      const im = document.getElementById('theme-icon-mobile');
+      const lm = document.getElementById('theme-label-mobile');
+      if (im) im.textContent = dark ? '☾' : '☀';
+      if (lm) lm.textContent = dark ? 'Dark' : 'Light';
     }
 
     // Init label from current state
@@ -269,6 +283,19 @@ const ogImage = `${siteUrl}/og-image.png`;
     btn?.addEventListener('click', () => {
       const currentlyDark = document.documentElement.classList.contains('dark');
       applyTheme(!currentlyDark);
+    });
+
+    const btnMobile = document.getElementById('theme-toggle-mobile');
+    const iconMobile = document.getElementById('theme-icon-mobile');
+    const labelMobile = document.getElementById('theme-label-mobile');
+    if (iconMobile) iconMobile.textContent = isDark ? '☾' : '☀';
+    if (labelMobile) labelMobile.textContent = isDark ? 'Dark' : 'Light';
+
+    btnMobile?.addEventListener('click', () => {
+      const currentlyDark = document.documentElement.classList.contains('dark');
+      applyTheme(!currentlyDark);
+      if (iconMobile) iconMobile.textContent = !currentlyDark ? '☾' : '☀';
+      if (labelMobile) labelMobile.textContent = !currentlyDark ? 'Dark' : 'Light';
     });
 
     // Active nav link on scroll

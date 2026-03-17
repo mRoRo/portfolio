@@ -77,21 +77,15 @@ const skillColors: Record<string, string> = {
         <div class="animate-fade-in-up delay-600 flex flex-wrap gap-4">
           <a
             href="#contact"
-            class="inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
-            style="background: var(--bg-cyan-10); border: 1px solid var(--border-cyan-40); color: var(--cyan); box-shadow: 0 0 20px rgba(0,212,255,0.1);"
-            onmouseover="this.style.background='rgba(0,212,255,0.2)'; this.style.boxShadow='0 0 30px rgba(0,212,255,0.25)'"
-            onmouseout="this.style.background='rgba(0,212,255,0.1)'; this.style.boxShadow='0 0 20px rgba(0,212,255,0.1)'"
+            class="cta-btn-cyan inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
           >
-            <span>◎</span> {t('hero.cta.contact')}
+            <span aria-hidden="true">◎</span> {t('hero.cta.contact')}
           </a>
           <a
             href="#projects"
-            class="inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
-            style="background: var(--bg-purple-08); border: 1px solid var(--border-purple-30); color: var(--purple-bright);"
-            onmouseover="this.style.background='rgba(191,0,255,0.15)'; this.style.boxShadow='0 0 20px rgba(191,0,255,0.2)'"
-            onmouseout="this.style.background='rgba(191,0,255,0.08)'; this.style.boxShadow='none'"
+            class="cta-btn-purple inline-flex items-center gap-2 py-3 px-6 rounded-md font-display font-medium text-sm transition-all duration-300"
           >
-            <span>◆</span> {t('hero.cta.projects')}
+            <span aria-hidden="true">◆</span> {t('hero.cta.projects')}
           </a>
         </div>
       </div>
@@ -418,10 +412,7 @@ const skillColors: Record<string, string> = {
         <div class="space-y-3">
 
           <a href={`mailto:${profile.email}`}
-             class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid var(--border-cyan-10);"
-             onmouseover="this.style.background='rgba(0,212,255,0.05)'; this.style.borderColor='rgba(0,212,255,0.3)'"
-             onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
+             class="contact-link group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: var(--cyan-dim);">$</span>
             <span class="font-mono text-xs flex-shrink-0" style="color: var(--cyan-soft);">open</span>
@@ -430,10 +421,7 @@ const skillColors: Record<string, string> = {
           </a>
 
           <a href={profile.linkedin} target="_blank" rel="noopener"
-             class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid var(--border-cyan-10);"
-             onmouseover="this.style.background='rgba(0,212,255,0.05)'; this.style.borderColor='rgba(0,212,255,0.3)'"
-             onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
+             class="contact-link group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: var(--cyan-dim);">$</span>
             <span class="font-mono text-xs flex-shrink-0" style="color: var(--cyan-soft);">open</span>
@@ -442,10 +430,7 @@ const skillColors: Record<string, string> = {
           </a>
 
           <a href={profile.github.url} target="_blank" rel="noopener"
-             class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid var(--border-cyan-10);"
-             onmouseover="this.style.background='rgba(191,0,255,0.05)'; this.style.borderColor='rgba(191,0,255,0.3)'"
-             onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
+             class="contact-link group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(191,0,255,0.4);">$</span>
             <span class="font-mono text-xs flex-shrink-0" style="color: var(--purple-mid);">open</span>
@@ -454,10 +439,7 @@ const skillColors: Record<string, string> = {
           </a>
 
           <a href="https://twitter.com/MariaRRojo" target="_blank" rel="noopener"
-             class="group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
-             style="border: 1px solid var(--border-cyan-10);"
-             onmouseover="this.style.background='rgba(191,0,255,0.05)'; this.style.borderColor='rgba(191,0,255,0.3)'"
-             onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(0,212,255,0.1)'"
+             class="contact-link group flex items-center gap-4 p-3 rounded-md transition-all duration-200"
           >
             <span class="font-mono text-[11px] w-5 flex-shrink-0" style="color: rgba(191,0,255,0.4);">$</span>
             <span class="font-mono text-xs flex-shrink-0" style="color: var(--purple-mid);">open</span>
