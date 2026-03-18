@@ -163,7 +163,7 @@
       }
     },
     {
-      "name": "Green Lane EUSPA",
+      "name": "Galileo Green Lane",
       "description": {
         "en": "Real-time EU border status for freight carriers. Enhancing cross-border logistics efficiency for the European Commission.",
         "es": "Estado de fronteras UE en tiempo real para transportistas. Mejora de la eficiencia logística transfronteriza para la Comisión Europea."
@@ -203,7 +203,7 @@
       }
     },
     {
-      "name": "TMB Accessibility SDK",
+      "name": "TMB Beacons SDK",
       "description": {
         "en": "iOS SDK enabling visually impaired users to receive bus info via Bluetooth Beacons. Improving public transport for everyone.",
         "es": "SDK iOS que permite a usuarios con discapacidad visual recibir info de autobús vía Bluetooth Beacons. Mejorando el transporte público para todos."
@@ -219,8 +219,8 @@
       "company": "GMV",
       "highlight": true,
       "link": {
-        "en": "https://www.gmv.com/en/communication/news/gmv-provide-new-user-information-and-video-surveillance-system-tmb-city-buses",
-        "es": "https://www.gmv.com/es-es/comunicacion/noticias/gmv-proporcionara-el-nuevo-sistema-informacion-usuario-y-videovigilancia-buses-tmb"
+        "en": "https://www.tmb.cat/en/get-to-know-tmb/transport-network-improvements/other-improvements/bus-arrival-alerts",
+        "es": "https://www.tmb.cat/es/conoce-tmb/mejoras-red-transporte/otras-mejoras/alertas-llegada-bus"
       }
     },
     {
@@ -299,7 +299,11 @@
       ],
       "period": "2013 – 2015",
       "company": "HC Technologies",
-      "highlight": false
+      "highlight": false,
+      "link": {
+        "en": "https://www.youtube.com/watch?v=o-ejSsMdufQ",
+        "es": "https://www.youtube.com/watch?v=o-ejSsMdufQ"
+      }
     }
   ],
   "skills": {

@@ -258,7 +258,25 @@ const ogImage = `${siteUrl}/avatar.jpg`;
   </main>
 
   <script>
-    // Theme toggle logic
+    // ── Theme: restore from localStorage immediately ────────────────────────
+    // Astro View Transitions resets <html class="dark"> on navigation.
+    // This runs at the top of every page-load (initial + after each VT swap).
+    (function restoreTheme() {
+      const saved = localStorage.getItem('theme');
+      const dark = saved !== 'light';
+      document.documentElement.classList.toggle('dark', dark);
+      document.documentElement.classList.toggle('light', !dark);
+    })();
+
+    // ── Prevent event listener accumulation across View Transitions ─────────
+    // Each navigation re-runs this module script. AbortController cleans up
+    // listeners from the previous run before adding new ones.
+    const _win = window as typeof window & { __themeAbort?: AbortController };
+    _win.__themeAbort?.abort();
+    const _ctrl = new AbortController();
+    _win.__themeAbort = _ctrl;
+    const _sig = _ctrl.signal;
+
     const btn = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
     const label = document.getElementById('theme-label');
@@ -269,7 +287,6 @@ const ogImage = `${siteUrl}/avatar.jpg`;
       localStorage.setItem('theme', dark ? 'dark' : 'light');
       if (icon) icon.textContent = dark ? '☾' : '☀';
       if (label) label.textContent = dark ? 'Dark' : 'Light';
-      // Update aria-labels to reflect the action (switch TO the other mode)
       if (btn) btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       const im = document.getElementById('theme-icon-mobile');
       const lm = document.getElementById('theme-label-mobile');
@@ -279,7 +296,7 @@ const ogImage = `${siteUrl}/avatar.jpg`;
       if (bm) bm.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
     }
 
-    // Init label from current state
+    // Init UI from current (already-restored) state
     const isDark = document.documentElement.classList.contains('dark');
     if (icon) icon.textContent = isDark ? '☾' : '☀';
     if (label) label.textContent = isDark ? 'Dark' : 'Light';
@@ -288,7 +305,7 @@ const ogImage = `${siteUrl}/avatar.jpg`;
     btn?.addEventListener('click', () => {
       const currentlyDark = document.documentElement.classList.contains('dark');
       applyTheme(!currentlyDark);
-    });
+    }, { signal: _sig });
 
     const btnMobile = document.getElementById('theme-toggle-mobile');
     const iconMobile = document.getElementById('theme-icon-mobile');
@@ -299,9 +316,7 @@ const ogImage = `${siteUrl}/avatar.jpg`;
     btnMobile?.addEventListener('click', () => {
       const currentlyDark = document.documentElement.classList.contains('dark');
       applyTheme(!currentlyDark);
-      if (iconMobile) iconMobile.textContent = !currentlyDark ? '☾' : '☀';
-      if (labelMobile) labelMobile.textContent = !currentlyDark ? 'Dark' : 'Light';
-    });
+    }, { signal: _sig });
 
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
