@@ -470,19 +470,6 @@
         "es": "He trabajado junto a María durante 6 años en dos empresas muy diferentes —GMV y Minddistrict— y si hay algo que puedo decir con absoluta certeza es que es una de esas personas que siempre quieres en tu equipo.\n\nEn GMV trabajamos juntos como desarrolladores mobile en proyectos como Satelise, Covclear y Galileo Green Lanes. Pero donde María realmente destacó fue en un proyecto para TMB (el operador de transporte público de Barcelona), donde desarrolló una librería BLE y varias aplicaciones orientadas a mejorar la accesibilidad del transporte público para personas con discapacidad visual. Fui testigo directo de la calidad de su trabajo y de su capacidad para resolver problemas complejos con tecnologías que están lejos de ser triviales.\n\nLo que más destaca de María es su constante afán por aprender y adaptarse. La he visto evolucionar de Objective-C a Swift, de UIKit con storyboards a SwiftUI, pasar por paradigmas reactivos como RxSwift y ReactiveCocoa, y adoptar la concurrencia moderna de Swift con async/await. Siempre actualizada, siempre avanzando.\n\nTrabajar con María es fácil: la comunicación fluye con naturalidad, entiende el contexto, no genera ruido innecesario y aporta donde hace falta. Cualquier equipo que la incorpore ganará una desarrolladora iOS senior con un sólido bagaje técnico, pero sobre todo, ganará una compañera de la que es muy difícil querer desprenderse una vez que la conoces."
       },
       "linkedin": "https://linkedin.com/in/bquepab"
-    },
-    {
-      "author": "Oscar Colinas González",
-      "role": {
-        "en": "Service Delivery Scheduler at Colt Technology Services",
-        "es": "Service Delivery Scheduler en Colt Technology Services"
-      },
-      "date": "2012-07-26",
-      "quote": {
-        "en": "She is a delightful person, always willing to help with anything you need, and she puts in maximum effort to achieve any goal set before her.",
-        "es": "Es una persona encantadora, se ofrece para ayudarte en cualquier cosa que necesites, además de esforzarse al máximo para alcanzar cualquier objetivo que se le ponga por delante."
-      },
-      "linkedin": null
     }
   ]
 }
