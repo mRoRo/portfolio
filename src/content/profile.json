@@ -156,7 +156,11 @@
       ],
       "period": "2022 – 2025",
       "company": "Minddistrict",
-      "highlight": true
+      "highlight": true,
+      "link": {
+        "en": "https://www.minddistrict.com",
+        "es": "https://www.minddistrict.com"
+      }
     },
     {
       "name": "Green Lane EUSPA",
@@ -172,7 +176,11 @@
       ],
       "period": "2021 – 2022",
       "company": "GMV",
-      "highlight": true
+      "highlight": true,
+      "link": {
+        "en": "https://www.gmv.com/en-es/media/blog/automotive/galileo-green-lane-european-digital-platform-smart-solidarity-based-logistics",
+        "es": "https://www.gmv.com/es-es/media/blog/automocion/galileo-green-lane-plataforma-digital-europea-logistica-inteligente-solidaria"
+      }
     },
     {
       "name": "C-ROADS V2X HMI",
@@ -188,7 +196,11 @@
       ],
       "period": "2020 – 2021",
       "company": "GMV",
-      "highlight": false
+      "highlight": false,
+      "link": {
+        "en": "https://www.c-roads.eu",
+        "es": "https://www.c-roads.eu"
+      }
     },
     {
       "name": "TMB Accessibility SDK",
@@ -205,7 +217,11 @@
       ],
       "period": "2019",
       "company": "GMV",
-      "highlight": true
+      "highlight": true,
+      "link": {
+        "en": "https://www.gmv.com/en/communication/news/gmv-provide-new-user-information-and-video-surveillance-system-tmb-city-buses",
+        "es": "https://www.gmv.com/es-es/comunicacion/noticias/gmv-proporcionara-el-nuevo-sistema-informacion-usuario-y-videovigilancia-buses-tmb"
+      }
     },
     {
       "name": "Satelise Tolling System",
@@ -221,10 +237,14 @@
       ],
       "period": "2018 – 2022",
       "company": "GMV",
-      "highlight": false
+      "highlight": false,
+      "link": {
+        "en": "https://satelise.com",
+        "es": "https://satelise.com/es"
+      }
     },
     {
-      "name": "CovClear",
+      "name": "Covclear",
       "description": {
         "en": "COVID-19 workplace safety platform developed at GMV. Daily health self-assessment, travel-to-restricted-areas tracking and access control for a safe return to work. iOS, Android and web admin panel. GDPR compliant.",
         "es": "Plataforma de seguridad laboral COVID-19 desarrollada en GMV. Autoevaluación médica diaria, registro de viajes a zonas restringidas y control de accesos para una vuelta al trabajo segura. iOS, Android y panel web de administración. Conforme al RGPD."
@@ -238,7 +258,11 @@
       ],
       "period": "2020",
       "company": "GMV",
-      "highlight": false
+      "highlight": false,
+      "link": {
+        "en": "https://www.gmv.com/en/communication/press-room/press-releases/gmv-creates-mobile-app-ensure-safer-return-work",
+        "es": "https://www.gmv.com/es-es/comunicacion/noticias/gmv-crea-una-app-movil-para-una-reincorporacion-mas-segura-al-trabajo"
+      }
     },
     {
       "name": "ownCloud iOS",
@@ -254,7 +278,11 @@
       ],
       "period": "2015 – 2016",
       "company": "Solid Gear",
-      "highlight": false
+      "highlight": false,
+      "link": {
+        "en": "https://github.com/owncloud/ios-app",
+        "es": "https://github.com/owncloud/ios-app"
+      }
     },
     {
       "name": "APG Cash Drawer",

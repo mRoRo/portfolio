@@ -25,14 +25,14 @@ const otherLangLabel = otherLang.toUpperCase();
 const pageTitle = title || `${profile.name} — ${profile.headline[lang]}`;
 const pageDescription = description || profile.heroDescription[lang];
 const canonicalUrl = lang === siteConfig.defaultLang ? siteUrl : `${siteUrl}/${lang}/`;
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = `${siteUrl}/avatar.jpg`;
 ---
 
 <!DOCTYPE html>
 <html lang={lang} class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
   <meta name="author" content={profile.name} />
@@ -81,7 +81,7 @@ const ogImage = `${siteUrl}/og-image.png`;
       const saved = localStorage.getItem('theme');
       const isDark = saved ? saved === 'dark' : true;
       document.documentElement.classList.toggle('dark', isDark);
-      if (!isDark) document.body && document.body.classList.add('light');
+      document.documentElement.classList.toggle('light', !isDark);
     })();
   </script>
 
@@ -100,23 +100,30 @@ const ogImage = `${siteUrl}/og-image.png`;
   )}
 </head>
 
-<body id="top" class="bg-[#050508] dark:bg-[#050508] text-[#c8d8f8] min-h-screen antialiased">
+<body id="top" class="min-h-screen antialiased">
+  <!-- Skip to content — keyboard accessibility -->
+  <a
+    href="#hero"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:rounded-md focus:font-mono focus:text-xs"
+    style="background: var(--color-surface-dark); border: 1px solid var(--border-cyan-40); color: var(--cyan);"
+  >
+    Skip to content
+  </a>
 
   <!-- ═══════════════════════════════════════════
        SIDEBAR — Desktop
        ═══════════════════════════════════════════ -->
   <aside class="sidebar-desktop fixed left-0 top-0 h-screen w-[260px] flex flex-col z-50"
-         style="background: #0d0d1a; border-right: 1px solid rgba(0,212,255,0.12);">
+         style="background: var(--color-surface-dark); border-right: 1px solid rgba(0,212,255,0.12);">
 
     <!-- Logo / Identity -->
     <div class="p-6 pb-4" style="border-bottom: 1px solid rgba(0,212,255,0.08);">
       <a href="#hero" class="block group">
-        <div class="font-mono text-xs mb-1" style="color: var(--cyan-soft);">// developer</div>
         <div class="font-display font-semibold text-lg leading-tight group-hover:text-[#00d4ff] transition-colors duration-200"
              style="letter-spacing: -0.02em; color: var(--text-bright);">
           mRoRo
         </div>
-        <div class="font-mono text-xs mt-1 animate-neon-pulse" style="color: var(--cyan-mid);">
+        <div class="font-mono text-xs mt-1" style="color: var(--cyan-mid);">
           {profile.headline[lang]}
         </div>
       </a>
@@ -174,7 +181,7 @@ const ogImage = `${siteUrl}/og-image.png`;
         <button
           id="theme-toggle"
           type="button"
-          aria-label="Toggle theme"
+          aria-label="Switch to light mode"
           class="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-md font-mono text-xs transition-all duration-200"
           style="background: var(--bg-cyan-05); border: 1px solid var(--border-cyan-15); color: var(--cyan-mid);"
         >
@@ -198,43 +205,43 @@ const ogImage = `${siteUrl}/og-image.png`;
   <!-- ═══════════════════════════════════════════
        MOBILE BOTTOM NAV
        ═══════════════════════════════════════════ -->
-  <nav class="mobile-nav fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around px-2 py-2"
+  <nav class="mobile-nav fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around px-1 py-1"
        aria-label={t('nav.section.navigate')}
-       style="background: #0d0d1a; border-top: 1px solid rgba(0,212,255,0.12); height: 64px;">
-    <a href="#about" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+       style="background: var(--color-surface-dark); border-top: 1px solid rgba(0,212,255,0.12); height: 64px;">
+    <a href="#about" class="mobile-nav-item" style="color: rgba(0,212,255,0.6);">
       <span class="text-base" aria-hidden="true">◈</span>
-      <span class="font-mono text-[10px]">{t('nav.about')}</span>
+      <span class="font-mono text-[11px]">{t('nav.about')}</span>
     </a>
-    <a href="#experience" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+    <a href="#experience" class="mobile-nav-item" style="color: rgba(0,212,255,0.6);">
       <span class="text-base" aria-hidden="true">◉</span>
-      <span class="font-mono text-[10px]">{t('nav.experience')}</span>
+      <span class="font-mono text-[11px]">{t('nav.experience')}</span>
     </a>
-    <a href="#projects" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+    <a href="#projects" class="mobile-nav-item" style="color: rgba(0,212,255,0.6);">
       <span class="text-base" aria-hidden="true">◆</span>
-      <span class="font-mono text-[10px]">{t('nav.projects')}</span>
+      <span class="font-mono text-[11px]">{t('nav.projects')}</span>
     </a>
-    <a href="#skills" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+    <a href="#skills" class="mobile-nav-item" style="color: rgba(0,212,255,0.6);">
       <span class="text-base" aria-hidden="true">◇</span>
-      <span class="font-mono text-[10px]">{t('nav.skills')}</span>
+      <span class="font-mono text-[11px]">{t('nav.skills')}</span>
     </a>
-    <a href="#contact" class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors" style="color: rgba(0,212,255,0.6);">
+    <a href="#contact" class="mobile-nav-item" style="color: rgba(0,212,255,0.6);">
       <span class="text-base" aria-hidden="true">◎</span>
-      <span class="font-mono text-[10px]">{t('nav.contact')}</span>
+      <span class="font-mono text-[11px]">{t('nav.contact')}</span>
     </a>
     <!-- Mobile theme toggle -->
     <button
       id="theme-toggle-mobile"
-      aria-label="Toggle theme"
-      class="flex flex-col items-center gap-0.5 p-2 rounded-lg transition-colors"
+      aria-label="Switch to light mode"
+      class="mobile-nav-item"
       style="color: rgba(0,212,255,0.6); background: none; border: none; cursor: pointer;"
     >
       <span class="text-base" id="theme-icon-mobile" aria-hidden="true">☾</span>
-      <span class="font-mono text-[10px]" id="theme-label-mobile">Dark</span>
+      <span class="font-mono text-[11px]" id="theme-label-mobile">Dark</span>
     </button>
     <!-- Mobile lang toggle -->
-    <a href={otherLangUrl} class="flex flex-col items-center gap-0.5 p-2 rounded-lg" style="color: rgba(191,0,255,0.8);">
+    <a href={otherLangUrl} class="mobile-nav-item" style="color: rgba(191,0,255,0.8);">
       <span class="text-base" aria-hidden="true">⌘</span>
-      <span class="font-mono text-[10px]">{otherLangLabel}</span>
+      <span class="font-mono text-[11px]">{otherLangLabel}</span>
     </a>
   </nav>
 
@@ -258,20 +265,25 @@ const ogImage = `${siteUrl}/og-image.png`;
 
     function applyTheme(dark: boolean) {
       document.documentElement.classList.toggle('dark', dark);
-      document.body.classList.toggle('light', !dark);
+      document.documentElement.classList.toggle('light', !dark);
       localStorage.setItem('theme', dark ? 'dark' : 'light');
       if (icon) icon.textContent = dark ? '☾' : '☀';
       if (label) label.textContent = dark ? 'Dark' : 'Light';
+      // Update aria-labels to reflect the action (switch TO the other mode)
+      if (btn) btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       const im = document.getElementById('theme-icon-mobile');
       const lm = document.getElementById('theme-label-mobile');
+      const bm = document.getElementById('theme-toggle-mobile');
       if (im) im.textContent = dark ? '☾' : '☀';
       if (lm) lm.textContent = dark ? 'Dark' : 'Light';
+      if (bm) bm.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
     }
 
     // Init label from current state
     const isDark = document.documentElement.classList.contains('dark');
     if (icon) icon.textContent = isDark ? '☾' : '☀';
     if (label) label.textContent = isDark ? 'Dark' : 'Light';
+    if (btn) btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 
     btn?.addEventListener('click', () => {
       const currentlyDark = document.documentElement.classList.contains('dark');

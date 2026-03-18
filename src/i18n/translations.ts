@@ -38,6 +38,7 @@ export const ui = {
     // Projects
     'projects.label': '~/projects --all',
     'projects.highlight': 'Featured',
+    'projects.reference': 'Reference',
 
     // Skills
     'skills.label': '$ ls ~/skills/',
@@ -101,6 +102,7 @@ export const ui = {
     // Projects
     'projects.label': '~/proyectos --all',
     'projects.highlight': 'Destacado',
+    'projects.reference': 'Referencia',
 
     // Skills
     'skills.label': '$ ls ~/habilidades/',

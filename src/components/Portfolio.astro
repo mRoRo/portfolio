@@ -42,8 +42,20 @@ const skillColors: Record<string, string> = {
 
       <!-- Identity -->
       <div>
+        <!-- Avatar -->
+        <div class="animate-fade-in-up delay-100 mb-5">
+          <img
+            src="/avatar.jpg"
+            alt="María Rodríguez Rojo"
+            width="96"
+            height="96"
+            class="rounded-full object-cover"
+            style="width: 96px; height: 96px; border: 2px solid var(--border-cyan-40); box-shadow: 0 0 0 4px rgba(0,212,255,0.06), 0 0 24px rgba(0,212,255,0.18);"
+          />
+        </div>
+
         <!-- Prompt line -->
-        <div class="animate-fade-in-up delay-100 font-mono text-sm mb-3" style="color: var(--cyan-soft);">
+        <div class="animate-fade-in-up delay-200 font-mono text-sm mb-3" style="color: var(--cyan-soft);">
           <span style="color: var(--green-pure);">❯</span> whoami
         </div>
 
@@ -121,7 +133,7 @@ const skillColors: Record<string, string> = {
             <div class="flex items-baseline gap-2">
               <span class="font-mono text-xs" style="color: var(--cyan-soft);">$</span>
               <div>
-                <div class="font-mono text-sm font-semibold cursor-blink" style="color: var(--text-bright); line-height:1.4;">{profile.location[lang]}</div>
+                <div class="font-mono text-sm font-semibold" style="color: var(--text-bright); line-height:1.4;">{profile.location[lang]}</div>
                 <div class="font-mono text-xs mt-0.5" style="color: var(--text-muted);">{t('hero.stat.location')}</div>
               </div>
             </div>
@@ -130,7 +142,7 @@ const skillColors: Record<string, string> = {
 
             <!-- Tech stack pills -->
             <div>
-              <div class="font-mono text-xs mb-2" style="color: var(--cyan-dim);">// primary_stack</div>
+              <div class="font-mono text-xs mb-2" style="color: var(--cyan-dim);">stack</div>
               <div class="flex flex-wrap gap-1.5">
                 {['Swift', 'SwiftUI', 'UIKit', 'MVVM'].map(s => (
                   <span class="skill-tag text-[10px] py-0.5 px-2">{s}</span>
@@ -161,7 +173,7 @@ const skillColors: Record<string, string> = {
 <section id="about" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+    <h2 class="font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('about.label')}
     </h2>
 
@@ -248,7 +260,7 @@ const skillColors: Record<string, string> = {
 <section id="experience" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+    <h2 class="font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('experience.label')}
     </h2>
 
@@ -314,7 +326,7 @@ const skillColors: Record<string, string> = {
 <section id="projects" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+    <h2 class="font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('projects.label')}
     </h2>
 
@@ -332,11 +344,24 @@ const skillColors: Record<string, string> = {
           <div class="terminal-content">
             <div class="font-mono text-[10px] mb-2" style="color: var(--text-dim);">{proj.company} · {proj.period}</div>
             <p class="font-sans text-sm leading-relaxed mb-4" style="color: var(--text-body);">{proj.description[lang]}</p>
-            <div class="flex flex-wrap gap-1">
+            <div class="flex flex-wrap gap-1 mb-3">
               {proj.skills.map((s) => (
                 <span class="skill-tag py-0.5 px-1.5 text-[9px]">{s}</span>
               ))}
             </div>
+            {(proj as any).link && (
+              <a
+                href={(proj as any).link[lang]}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 font-mono text-[10px] transition-colors duration-200"
+                style="color: var(--cyan-soft);"
+                aria-label={`${t('projects.reference')}: ${proj.name}`}
+              >
+                <span aria-hidden="true">↗</span>
+                {t('projects.reference')}
+              </a>
+            )}
           </div>
         </div>
       ))}
@@ -351,7 +376,7 @@ const skillColors: Record<string, string> = {
 <section id="skills" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+    <h2 class="font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('skills.label')}
     </h2>
 
@@ -366,9 +391,6 @@ const skillColors: Record<string, string> = {
                    style="color: var(--cyan-soft);">
                 <span style="color: rgba(0,212,255,0.3);">//</span>
                 {t(('skills.' + category) as any)}
-                <span class="font-mono text-[10px] ml-auto" style="color: rgba(200,216,248,0.25);">
-                  {(items as string[]).length} items
-                </span>
               </div>
               <div class="flex flex-wrap gap-2">
                 {(items as string[]).map((skill) => (
@@ -394,7 +416,7 @@ const skillColors: Record<string, string> = {
 <section id="contact" class="px-8 py-20">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="section-label font-mono text-sm mb-8" style="color: var(--cyan-soft);">
+    <h2 class="font-mono text-sm mb-8" style="color: var(--cyan-soft);">
       <span aria-hidden="true" style="color: var(--cyan);">❯</span> {t('contact.label')}
     </h2>
 
