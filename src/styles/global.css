@@ -405,6 +405,39 @@ html.light .scanlines {
 .delay-700 { animation-delay: 700ms; }
 
 /* =====================================================
+   AVATAR CONIC-GRADIENT GLOW RING
+   ===================================================== */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.avatar-glow-ring {
+  background: conic-gradient(
+    rgba(0, 212, 255, 0.8),
+    rgba(191, 0, 255, 0.6),
+    rgba(0, 212, 255, 0.8)
+  );
+  animation: spin-slow 4s linear infinite;
+  border-radius: 50%;
+}
+
+html.light .avatar-glow-ring {
+  background: conic-gradient(
+    rgba(3, 105, 161, 0.7),
+    rgba(124, 58, 237, 0.5),
+    rgba(3, 105, 161, 0.7)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-glow-ring {
+    animation: none;
+    background: rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* =====================================================
    SKILL TAGS
    ===================================================== */
 .skill-tag {
