@@ -51,6 +51,8 @@ export const ui = {
     'skills.other': 'Other',
 
     // Contact
+    'testimonials.label': '~/recommendations.md',
+    'testimonials.via': 'via LinkedIn',
     'contact.label': '~/contact.sh',
     'contact.available': 'Available for new opportunities',
     'contact.email': 'Send an email',
@@ -115,6 +117,8 @@ export const ui = {
     'skills.other': 'Otros',
 
     // Contact
+    'testimonials.label': '~/recomendaciones.md',
+    'testimonials.via': 'vía LinkedIn',
     'contact.label': '~/contacto.sh',
     'contact.available': 'Disponible para nuevas oportunidades',
     'contact.email': 'Enviar email',
