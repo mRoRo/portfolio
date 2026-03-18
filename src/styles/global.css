@@ -613,6 +613,42 @@ html.light .skill-tag-amber:hover {
 }
 
 /* =====================================================
+   THEME TOGGLE — CSS-powered icon crossfade + label state
+   No JS needed for visuals; state driven by html.dark / html.light
+   ===================================================== */
+.theme-btn-icon {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.theme-sun,
+.theme-moon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark mode (default): sun visible → label "Light" */
+html.dark  .theme-sun      { opacity: 1; }
+html.dark  .theme-moon     { opacity: 0; }
+html.dark  .theme-to-light { display: inline; }
+html.dark  .theme-to-dark  { display: none; }
+
+/* Light mode: moon visible → label "Dark" */
+html.light .theme-sun      { opacity: 0; }
+html.light .theme-moon     { opacity: 1; }
+html.light .theme-to-light { display: none; }
+html.light .theme-to-dark  { display: inline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-sun, .theme-moon { transition: none; }
+}
+
+/* =====================================================
    MOBILE NAV ITEMS — touch targets 44×44px minimum
    ===================================================== */
 .mobile-nav-item {

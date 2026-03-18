@@ -185,8 +185,9 @@ const ogImage = `${siteUrl}/avatar.jpg`;
           class="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-md font-mono text-xs transition-all duration-200"
           style="background: var(--bg-cyan-05); border: 1px solid var(--border-cyan-15); color: var(--cyan-mid);"
         >
-          <span id="theme-icon">☾</span>
-          <span id="theme-label">Dark</span>
+          <span class="theme-btn-icon" aria-hidden="true"><svg class="theme-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.59M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg><svg class="theme-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg></span>
+          <span class="theme-to-light">Light</span>
+          <span class="theme-to-dark">Dark</span>
         </button>
 
         <!-- Lang Toggle -->
@@ -235,8 +236,9 @@ const ogImage = `${siteUrl}/avatar.jpg`;
       class="mobile-nav-item"
       style="color: rgba(0,212,255,0.6); background: none; border: none; cursor: pointer;"
     >
-      <span id="theme-icon-mobile" class="text-base" aria-hidden="true">☾</span>
-      <span class="font-mono text-[11px]" id="theme-label-mobile">Dark</span>
+      <span class="theme-btn-icon" aria-hidden="true"><svg class="theme-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.59M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg><svg class="theme-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg></span>
+      <span class="font-mono text-[11px] theme-to-light">Light</span>
+      <span class="font-mono text-[11px] theme-to-dark">Dark</span>
     </button>
     <!-- Mobile lang toggle -->
     <a href={otherLangUrl} class="mobile-nav-item" style="color: rgba(191,0,255,0.8);">
@@ -276,41 +278,31 @@ const ogImage = `${siteUrl}/avatar.jpg`;
       const _sig = _ctrl.signal;
 
       // ── 3. Wire up theme toggle buttons ────────────────────────────────
-      const btn   = document.getElementById('theme-toggle');
-      const icon  = document.getElementById('theme-icon');
-      const label = document.getElementById('theme-label');
+      // Visual state (icon crossfade + label) is handled entirely by CSS
+      // (html.dark / html.light classes). JS only updates aria-label.
+      const btn = document.getElementById('theme-toggle');
+      const bm  = document.getElementById('theme-toggle-mobile');
 
       function applyTheme(dark: boolean) {
         document.documentElement.classList.toggle('dark', dark);
         document.documentElement.classList.toggle('light', !dark);
         localStorage.setItem('theme', dark ? 'dark' : 'light');
-        if (icon)  icon.textContent  = dark ? '☾' : '☀';
-        if (label) label.textContent = dark ? 'Dark' : 'Light';
-        if (btn)   btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-        const im = document.getElementById('theme-icon-mobile');
-        const lm = document.getElementById('theme-label-mobile');
-        const bm = document.getElementById('theme-toggle-mobile');
-        if (im) im.textContent = dark ? '☾' : '☀';
-        if (lm) lm.textContent = dark ? 'Dark' : 'Light';
-        if (bm) bm.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        // aria-label describes the ACTION (what clicking will do)
+        const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        if (btn) btn.setAttribute('aria-label', label);
+        if (bm)  bm.setAttribute('aria-label', label);
       }
 
       const isDark = document.documentElement.classList.contains('dark');
-      if (icon)  icon.textContent  = isDark ? '☾' : '☀';
-      if (label) label.textContent = isDark ? 'Dark' : 'Light';
-      if (btn)   btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      const initLabel = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+      if (btn) btn.setAttribute('aria-label', initLabel);
+      if (bm)  bm.setAttribute('aria-label', initLabel);
 
       btn?.addEventListener('click', () => {
         applyTheme(!document.documentElement.classList.contains('dark'));
       }, { signal: _sig });
 
-      const btnMobile   = document.getElementById('theme-toggle-mobile');
-      const iconMobile  = document.getElementById('theme-icon-mobile');
-      const labelMobile = document.getElementById('theme-label-mobile');
-      if (iconMobile)  iconMobile.textContent  = isDark ? '☾' : '☀';
-      if (labelMobile) labelMobile.textContent = isDark ? 'Dark' : 'Light';
-
-      btnMobile?.addEventListener('click', () => {
+      bm?.addEventListener('click', () => {
         applyTheme(!document.documentElement.classList.contains('dark'));
       }, { signal: _sig });
 
