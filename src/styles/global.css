@@ -649,29 +649,76 @@ html.light .theme-to-dark  { display: inline; }
 }
 
 /* =====================================================
-   MOBILE NAV ITEMS — touch targets 44×44px minimum
+   MOBILE NAV ITEMS — icon-only, 44×44px touch targets
    ===================================================== */
 .mobile-nav-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
   min-width: 44px;
   min-height: 44px;
-  padding: 4px 6px;
-  border-radius: 8px;
+  padding: 4px;
+  border-radius: 10px;
   transition: color 0.2s ease, background 0.2s ease;
   text-decoration: none;
+  flex: 1;
 }
 
-.mobile-nav-item:hover {
-  background: rgba(0, 212, 255, 0.06);
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  background: rgba(0, 212, 255, 0.08);
+  color: rgba(0, 212, 255, 1) !important;
 }
 
 .mobile-nav-item:focus-visible {
   outline: 2px solid rgba(0, 212, 255, 0.6);
   outline-offset: 2px;
+}
+
+/* =====================================================
+   MOBILE UTILITY PILL — theme + lang (top-right)
+   ===================================================== */
+.mobile-util-pill {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(13, 13, 26, 0.85);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+html.light .mobile-util-pill {
+  background: rgba(230, 236, 255, 0.9);
+  border-color: rgba(3, 105, 161, 0.2);
+}
+
+.mobile-util-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px;
+  border-radius: 14px;
+  color: rgba(0, 212, 255, 0.8);
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-util-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.mobile-util-btn:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.6);
+  outline-offset: 1px;
 }
 
 /* =====================================================
@@ -683,13 +730,19 @@ html.light .theme-to-dark  { display: inline; }
   }
   .mobile-nav {
     display: flex;
-    /* iOS safe area — clear home indicator on notched devices */
+    padding: 0 8px;
     padding-bottom: env(safe-area-inset-bottom, 0px);
-    height: calc(64px + env(safe-area-inset-bottom, 0px));
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
   }
   .main-content {
     margin-left: 0 !important;
-    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-util-pill {
+    display: none;
   }
 }
 
