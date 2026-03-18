@@ -89,7 +89,7 @@
       ],
       "description": {
         "en": "Led multiple EU-funded iOS projects: Green Lane EUSPA (real-time border logistics), C-ROADS V2X (connected vehicle HMI), TMB Accessibility SDK (Bluetooth beacons for visually impaired), Satelise tolling system (GPS-based highway payments), and fleet management solutions for public transport.",
-        "es": "Lideré múltiples proyectos iOS europeos: Green Lane EUSPA (logística fronteriza en tiempo real), C-ROADS V2X (HMI vehículos conectados), SDK de Accesibilidad TMB (balizas Bluetooth para invidentes), sistema de peaje Satelise (pagos en autopista por GPS) y soluciones de gestión de flotas de transporte público."
+        "es": "Lideré múltiples proyectos iOS europeos: Green Lane EUSPA (logística fronteriza en tiempo real), C-ROADS V2X (HMI para vehículos conectados), SDK de Accesibilidad TMB (balizas Bluetooth para personas con discapacidad visual), sistema de peaje Satelise (pagos en autopista por GPS) y soluciones de gestión de flotas de transporte público."
       }
     },
     {
@@ -186,7 +186,7 @@
       "name": "C-ROADS V2X HMI",
       "description": {
         "en": "Vehicle-to-Everything communication pilot HMI. Advancing connected vehicle technology across European roads.",
-        "es": "HMI piloto para comunicación Vehículo-a-Todo. Avanzando en tecnología de vehículos conectados en carreteras europeas."
+        "es": "HMI piloto para comunicación Vehículo-a-Todo. Impulsando la tecnología de vehículos conectados en carreteras europeas."
       },
       "skills": [
         "Swift",
@@ -205,8 +205,8 @@
     {
       "name": "TMB Beacons SDK",
       "description": {
-        "en": "iOS SDK enabling visually impaired users to receive bus info via Bluetooth Beacons. Improving public transport for everyone.",
-        "es": "SDK iOS que permite a usuarios con discapacidad visual recibir info de autobús vía Bluetooth Beacons. Mejorando el transporte público para todos."
+        "en": "iOS SDK enabling visually impaired users to receive bus information via Bluetooth beacons. Improving public transport for everyone.",
+        "es": "SDK iOS que permite a usuarios con discapacidad visual recibir información del autobús vía Bluetooth beacons. Mejorando el transporte público para todos."
       },
       "skills": [
         "Swift",
@@ -246,7 +246,7 @@
     {
       "name": "Covclear",
       "description": {
-        "en": "COVID-19 workplace safety platform developed at GMV. Daily health self-assessment, travel-to-restricted-areas tracking and access control for a safe return to work. iOS, Android and web admin panel. GDPR compliant.",
+        "en": "COVID-19 workplace safety platform developed at GMV. Daily health self-assessment, travel-to-restricted-areas tracking and access control for a safe return to work. iOS, Android and web admin panel. GDPR-compliant.",
         "es": "Plataforma de seguridad laboral COVID-19 desarrollada en GMV. Autoevaluación médica diaria, registro de viajes a zonas restringidas y control de accesos para una vuelta al trabajo segura. iOS, Android y panel web de administración. Conforme al RGPD."
       },
       "skills": [
@@ -372,7 +372,7 @@
   "education": [
     {
       "degree": {
-        "en": "Master in Project Management",
+        "en": "Master's in Project Management",
         "es": "Máster en Dirección de Proyectos"
       },
       "school": "Universidad de Valladolid",
@@ -381,7 +381,7 @@
     {
       "degree": {
         "en": "Master of Engineering in Telecommunications",
-        "es": "Ingeniero de Telecomunicación"
+        "es": "Ingeniera de Telecomunicación"
       },
       "school": "Universidad de Valladolid",
       "year": "2006 – 2010",
