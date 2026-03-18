@@ -258,121 +258,118 @@ const ogImage = `${siteUrl}/avatar.jpg`;
   </main>
 
   <script>
-    // ── Theme: restore from localStorage immediately ────────────────────────
-    // Astro View Transitions resets <html class="dark"> on navigation.
-    // This runs at the top of every page-load (initial + after each VT swap).
-    (function restoreTheme() {
+    // Wrap everything in initTheme() and call via astro:page-load
+    // This fires on BOTH initial load AND every View Transition navigation.
+    // Without this, module scripts only run once — listeners die after nav.
+    function initTheme() {
+      // ── 1. Restore theme from localStorage immediately ──────────────────
       const saved = localStorage.getItem('theme');
-      const dark = saved !== 'light';
-      document.documentElement.classList.toggle('dark', dark);
-      document.documentElement.classList.toggle('light', !dark);
-    })();
+      const shouldBeDark = saved !== 'light';
+      document.documentElement.classList.toggle('dark', shouldBeDark);
+      document.documentElement.classList.toggle('light', !shouldBeDark);
 
-    // ── Prevent event listener accumulation across View Transitions ─────────
-    // Each navigation re-runs this module script. AbortController cleans up
-    // listeners from the previous run before adding new ones.
-    const _win = window as typeof window & { __themeAbort?: AbortController };
-    _win.__themeAbort?.abort();
-    const _ctrl = new AbortController();
-    _win.__themeAbort = _ctrl;
-    const _sig = _ctrl.signal;
+      // ── 2. Kill stale listeners from previous run ───────────────────────
+      const _win = window as typeof window & { __themeAbort?: AbortController };
+      _win.__themeAbort?.abort();
+      const _ctrl = new AbortController();
+      _win.__themeAbort = _ctrl;
+      const _sig = _ctrl.signal;
 
-    const btn = document.getElementById('theme-toggle');
-    const icon = document.getElementById('theme-icon');
-    const label = document.getElementById('theme-label');
+      // ── 3. Wire up theme toggle buttons ────────────────────────────────
+      const btn   = document.getElementById('theme-toggle');
+      const icon  = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
 
-    function applyTheme(dark: boolean) {
-      document.documentElement.classList.toggle('dark', dark);
-      document.documentElement.classList.toggle('light', !dark);
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-      if (icon) icon.textContent = dark ? '☾' : '☀';
-      if (label) label.textContent = dark ? 'Dark' : 'Light';
-      if (btn) btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-      const im = document.getElementById('theme-icon-mobile');
-      const lm = document.getElementById('theme-label-mobile');
-      const bm = document.getElementById('theme-toggle-mobile');
-      if (im) im.textContent = dark ? '☾' : '☀';
-      if (lm) lm.textContent = dark ? 'Dark' : 'Light';
-      if (bm) bm.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-    }
+      function applyTheme(dark: boolean) {
+        document.documentElement.classList.toggle('dark', dark);
+        document.documentElement.classList.toggle('light', !dark);
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+        if (icon)  icon.textContent  = dark ? '☾' : '☀';
+        if (label) label.textContent = dark ? 'Dark' : 'Light';
+        if (btn)   btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        const im = document.getElementById('theme-icon-mobile');
+        const lm = document.getElementById('theme-label-mobile');
+        const bm = document.getElementById('theme-toggle-mobile');
+        if (im) im.textContent = dark ? '☾' : '☀';
+        if (lm) lm.textContent = dark ? 'Dark' : 'Light';
+        if (bm) bm.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
 
-    // Init UI from current (already-restored) state
-    const isDark = document.documentElement.classList.contains('dark');
-    if (icon) icon.textContent = isDark ? '☾' : '☀';
-    if (label) label.textContent = isDark ? 'Dark' : 'Light';
-    if (btn) btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      const isDark = document.documentElement.classList.contains('dark');
+      if (icon)  icon.textContent  = isDark ? '☾' : '☀';
+      if (label) label.textContent = isDark ? 'Dark' : 'Light';
+      if (btn)   btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 
-    btn?.addEventListener('click', () => {
-      const currentlyDark = document.documentElement.classList.contains('dark');
-      applyTheme(!currentlyDark);
-    }, { signal: _sig });
+      btn?.addEventListener('click', () => {
+        applyTheme(!document.documentElement.classList.contains('dark'));
+      }, { signal: _sig });
 
-    const btnMobile = document.getElementById('theme-toggle-mobile');
-    const iconMobile = document.getElementById('theme-icon-mobile');
-    const labelMobile = document.getElementById('theme-label-mobile');
-    if (iconMobile) iconMobile.textContent = isDark ? '☾' : '☀';
-    if (labelMobile) labelMobile.textContent = isDark ? 'Dark' : 'Light';
+      const btnMobile   = document.getElementById('theme-toggle-mobile');
+      const iconMobile  = document.getElementById('theme-icon-mobile');
+      const labelMobile = document.getElementById('theme-label-mobile');
+      if (iconMobile)  iconMobile.textContent  = isDark ? '☾' : '☀';
+      if (labelMobile) labelMobile.textContent = isDark ? 'Dark' : 'Light';
 
-    btnMobile?.addEventListener('click', () => {
-      const currentlyDark = document.documentElement.classList.contains('dark');
-      applyTheme(!currentlyDark);
-    }, { signal: _sig });
+      btnMobile?.addEventListener('click', () => {
+        applyTheme(!document.documentElement.classList.contains('dark'));
+      }, { signal: _sig });
 
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const sidebarLinks = document.querySelectorAll('.sidebar-link');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            sidebarLinks.forEach(link => {
-              const href = link.getAttribute('href');
-              link.classList.toggle('active', href === `#${id}`);
-            });
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    sections.forEach(s => observer.observe(s));
-
-    const glitchEl = document.querySelector('.glitch');
-    if (glitchEl) {
-      const glitchObserver = new IntersectionObserver(
-        ([entry]) => {
-          (glitchEl as HTMLElement).style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      // ── 4. Active nav link on scroll ────────────────────────────────────
+      const sections    = document.querySelectorAll('section[id]');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      const navObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              sidebarLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+              });
+            }
+          });
         },
-        { threshold: 0 }
+        { threshold: 0.3 }
       );
-      glitchObserver.observe(glitchEl);
+      sections.forEach(s => navObserver.observe(s));
+
+      // ── 5. Pause glitch animation when off-screen ────────────────────────
+      const glitchEl = document.querySelector('.glitch');
+      if (glitchEl) {
+        const glitchObserver = new IntersectionObserver(
+          ([entry]) => {
+            (glitchEl as HTMLElement).style.animationPlayState =
+              entry.isIntersecting ? 'running' : 'paused';
+          },
+          { threshold: 0 }
+        );
+        glitchObserver.observe(glitchEl);
+      }
+
+      // ── 6. Copy email button ─────────────────────────────────────────────
+      document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(copyBtn => {
+        copyBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          const text = copyBtn.dataset.copy ?? '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            const copyIcon  = copyBtn.querySelector<SVGElement>('.copy-icon');
+            const checkIcon = copyBtn.querySelector<SVGElement>('.check-icon');
+            if (copyIcon && checkIcon) {
+              copyIcon.classList.add('hidden');
+              checkIcon.classList.remove('hidden');
+              setTimeout(() => {
+                checkIcon.classList.add('hidden');
+                copyIcon.classList.remove('hidden');
+              }, 2000);
+            }
+          } catch { /* clipboard unavailable */ }
+        }, { signal: _sig });
+      });
     }
 
-    // ── Copy email button ───────────────────────────────────────────────────
-    document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const text = btn.dataset.copy ?? '';
-        if (!text) return;
-        try {
-          await navigator.clipboard.writeText(text);
-          const copyIcon  = btn.querySelector<SVGElement>('.copy-icon');
-          const checkIcon = btn.querySelector<SVGElement>('.check-icon');
-          if (copyIcon && checkIcon) {
-            copyIcon.classList.add('hidden');
-            checkIcon.classList.remove('hidden');
-            setTimeout(() => {
-              checkIcon.classList.add('hidden');
-              copyIcon.classList.remove('hidden');
-            }, 2000);
-          }
-        } catch {
-          // Clipboard API not available — silent fail
-        }
-      });
-    });
+    // astro:page-load fires on initial load AND after every View Transition
+    document.addEventListener('astro:page-load', initTheme);
   </script>
 
 </body>
