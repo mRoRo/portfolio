@@ -1,8 +1,6 @@
-# María Rodríguez Rojo — Developer Portfolio
+# María Rodríguez Rojo — Portfolio
 
-A modern, bilingual developer portfolio built with **Astro 5**, **Tailwind CSS 4**, and a **Neon Dream** cyberpunk aesthetic. Features dark/light theme, automatic browser language detection, and full English/Spanish support.
-
-Made with 🧡 by [Web Reactiva](https://webreactiva.com)
+Bilingual personal portfolio for a Senior iOS Developer. Built with **Astro 5**, **Tailwind CSS 4**, and a neon cyberpunk aesthetic. Supports dark/light theme, automatic browser language detection, and full English/Spanish content.
 
 ---
 
@@ -17,108 +15,127 @@ Visit `http://localhost:4321`
 
 ## Commands
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Install dependencies                         |
-| `npm run dev`     | Start dev server at `localhost:4321`         |
-| `npm run build`   | Build production site to `./dist/`           |
-| `npm run preview` | Preview production build locally             |
+| Command           | Action                                    |
+| :---------------- | :---------------------------------------- |
+| `npm install`     | Install dependencies                      |
+| `npm run dev`     | Start dev server at `localhost:4321`      |
+| `npm run build`   | Build production site to `./dist/`        |
+| `npm run preview` | Preview the production build locally      |
 
 ---
 
-## Language Behavior
+## Features
 
-- **Root URL** (`/`) → English by default
-- **Auto-detection**: On first visit, browser language is checked. If Spanish (`es`), automatically redirects to `/es/`
-- **Manual toggle**: Language switch button in sidebar
-- **Secondary URL** (`/es/`) → Spanish
+- **Bilingual** — Full EN/ES content. Automatic browser language detection on first visit; manual toggle in sidebar and mobile nav.
+- **Dark / Light theme** — Toggle persists across pages and language switches via `localStorage`. CSS-driven icon crossfade (no JS for visuals).
+- **View Transitions** — Smooth page transitions with Astro's `<ClientRouter />`. Theme and event listeners re-initialise on every navigation via `astro:page-load`.
+- **Sections** — Hero · About · Experience · Projects · Skills · Recommendations · Contact
+- **Project cards** — Cards with a reference URL are fully clickable; external link icon appears on hover.
+- **Copy email** — Clipboard button in Contact with check-mark feedback.
+- **Recommendations** — LinkedIn recommendation displayed with terminal-window blockquote style.
+- **Mobile nav** — Icon-only bottom tab bar (6 sections). Theme toggle and language switcher live in a frosted-glass pill fixed to the top-right corner.
+- **Lighthouse scores** (production build):
+  - Desktop: Performance 99 · Accessibility 95 · Best Practices 100 · SEO 100
+  - Mobile:  Performance 87 · Accessibility 95 · Best Practices 100 · SEO 100
 
 ---
 
-## Customization Guide
+## Customisation
 
-### 1. Profile Data (`src/content/profile.json`)
+### 1. Profile data — `src/content/profile.json`
 
-All personal content lives here in bilingual format:
+All personal content in bilingual format:
 
-```json
+```jsonc
 {
   "name": "Your Name",
-  "headline": { "en": "Your Title", "es": "Tu Título" },
-  "bio": { "en": "...", "es": "..." },
-  "experience": [...],
-  "projects": [...],
-  "skills": {...}
+  "headline":    { "en": "Your Title",  "es": "Tu Título" },
+  "bio":         { "en": "...",         "es": "..." },
+  "experience":  [ { "company": "...", "description": { "en": "...", "es": "..." } } ],
+  "projects":    [ { "name": "...",    "description": { "en": "...", "es": "..." },
+                     "link": { "en": "https://...", "es": "https://..." } } ],
+  "skills":      { "languages": [], "frameworks": [], "tools": [] },
+  "testimonials":[ { "author": "...", "quote": { "en": "...", "es": "..." } } ]
 }
 ```
 
-### 2. Change Default Language (`src/config.ts`)
+### 2. UI strings — `src/i18n/translations.ts`
+
+Navigation labels, section headers, and button text. Profile content lives in `profile.json`, not here.
+
+### 3. Site URL & language — `src/config.ts`
 
 ```typescript
 export const siteConfig = {
-  defaultLang: 'en',     // Language at root URL (/)
-  secondaryLang: 'es',   // Language at /es/
+  siteUrl:       'https://yourdomain.com',
+  defaultLang:   'en',   // language served at /
+  secondaryLang: 'es',   // language served at /es/
 } as const;
 ```
 
-If you swap to Spanish as default, also rename `src/pages/es/` → `src/pages/en/` and move `src/pages/index.astro` logic accordingly.
+To make Spanish the default, update `defaultLang` and rename `src/pages/es/` accordingly.
 
-### 3. UI Translations (`src/i18n/translations.ts`)
+### 4. Theme colours — `src/styles/global.css`
 
-Navigation labels, section headers, and button text are here. Profile content is **not** here — keep them separate.
-
-### 4. Theme & Colors (`src/styles/global.css`)
-
-Key neon variables in `@theme`:
+Core palette variables at the top of the file:
 
 ```css
-@theme {
-  --color-neon: #00d4ff;        /* Primary neon color */
-  --color-neon-purple: #bf00ff; /* Secondary accent */
-  --color-bg-dark: #050508;     /* Dark bg */
-  --color-bg-light: #080d2a;    /* Light (day-mode) bg */
-}
+/* Dark mode (default) */
+--color-bg-dark:     #050508;    /* page background        */
+--color-neon:        #00d4ff;    /* primary cyan accent    */
+--color-neon-purple: #bf00ff;    /* secondary purple       */
+
+/* Light mode (activated via html.light class) */
+--color-bg-light:    #f0f4ff;    /* page background        */
 ```
+
+### 5. Avatar — `public/avatar.jpg` / `public/avatar.webp`
+
+Replace both files with your photo (keep the same filenames). The `<picture>` element serves WebP to supporting browsers with JPEG as fallback. Recommended: 200×200 px, square crop.
 
 ---
 
 ## Project Structure
 
 ```
-src/
-├── config.ts              # Language config (single source of truth)
-├── components/
-│   └── Portfolio.astro    # All page sections
-├── content/
-│   └── profile.json       # Your personal data (bilingual)
-├── i18n/
-│   └── translations.ts    # UI strings (bilingual)
-├── layouts/
-│   └── Layout.astro       # Page shell + sidebar
-├── pages/
-│   ├── index.astro        # English (root /)
-│   └── es/
-│       └── index.astro    # Spanish (/es/)
-└── styles/
-    └── global.css         # Neon Dream theme + animations
+portfolio/
+├── public/
+│   ├── avatar.jpg          # Profile photo (JPEG fallback)
+│   └── avatar.webp         # Profile photo (WebP, primary)
+└── src/
+    ├── config.ts           # Site URL + language config
+    ├── components/
+    │   └── Portfolio.astro # All page sections
+    ├── content/
+    │   └── profile.json    # Personal data (bilingual)
+    ├── i18n/
+    │   └── translations.ts # UI strings (bilingual)
+    ├── layouts/
+    │   └── Layout.astro    # Page shell, sidebar, mobile nav
+    ├── pages/
+    │   ├── index.astro     # English  (/)
+    │   └── es/
+    │       └── index.astro # Spanish  (/es/)
+    └── styles/
+        └── global.css      # Neon theme, animations, light mode
 ```
 
 ---
 
-## Deploy to Vercel
+## Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+This is a fully static Astro site (`output: 'static'`). `npm run build` produces a `dist/` folder that can be served from any static host — no server runtime required.
 
-1. Push project to GitHub
-2. Import at [vercel.com/new](https://vercel.com/new)
-3. Vercel auto-detects Astro — no config needed
+- **Netlify** — connect the repository, set build command `npm run build`, publish directory `dist`
+- **GitHub Pages** — use the [Astro GitHub Pages action](https://docs.astro.build/en/guides/deploy/github/)
+- **Any CDN / VPS** — upload the contents of `dist/` to your web root
 
 ---
 
 ## Tech Stack
 
-- [Astro](https://astro.build) 5.x
-- [Tailwind CSS](https://tailwindcss.com) 4.x
+- [Astro](https://astro.build) 5.x — static site generator with View Transitions
+- [Tailwind CSS](https://tailwindcss.com) 4.x — utility-first CSS
 - TypeScript
-- Space Grotesk + IBM Plex fonts
-- View Transitions API
+- [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) + [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) — loaded non-blocking via Google Fonts
+- Heroicons — inline SVG icons
