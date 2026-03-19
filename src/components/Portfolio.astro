@@ -47,14 +47,17 @@ const skillColors: Record<string, string> = {
           <div class="relative inline-block">
             <!-- Rotating conic-gradient ring -->
             <div class="absolute -inset-[3px] rounded-full avatar-glow-ring" aria-hidden="true"></div>
-            <img
-              src="/avatar.jpg"
-              alt="María Rodríguez Rojo"
-              width="96"
-              height="96"
-              class="relative rounded-full object-cover"
-              style="width: 96px; height: 96px;"
-            />
+            <picture>
+              <source srcset="/avatar.webp" type="image/webp" />
+              <img
+                src="/avatar.jpg"
+                alt="María Rodríguez Rojo"
+                width="96"
+                height="96"
+                class="relative rounded-full object-cover"
+                style="width: 96px; height: 96px;"
+              />
+            </picture>
           </div>
         </div>
 
@@ -368,7 +371,6 @@ const skillColors: Record<string, string> = {
               target="_blank"
               rel="noopener noreferrer"
               class={`animate-fade-in-up delay-${(i + 1) * 100} terminal-window group ${proj.highlight ? 'ring-1 ring-[rgba(0,212,255,0.2)]' : ''}`}
-              aria-label={`${proj.name} — ${t('projects.reference')}`}
             >
               {cardContent}
             </a>
