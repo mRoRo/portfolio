@@ -33,7 +33,7 @@ const ogImage = `${siteUrl}/avatar.jpg`;
 ---
 
 <!DOCTYPE html>
-<html lang={lang} class="dark">
+<html lang={lang} class="dark" data-career-start={String(profile.careerStartYear)}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -347,7 +347,28 @@ const ogImage = `${siteUrl}/avatar.jpg`;
         glitchObserver.observe(glitchEl);
       }
 
-      // ── 6. Copy email button ─────────────────────────────────────────────
+      // ── 6. Years of experience — runtime recalc (stays correct without rebuild)
+      (function updateYears() {
+        const startYear = parseInt(
+          document.documentElement.dataset.careerStart ?? '2013', 10
+        );
+        const years = new Date().getFullYear() - startYear;
+
+        // Stat panel number
+        const stat = document.getElementById('years-exp-stat');
+        if (stat) stat.textContent = String(years);
+
+        // Hero inline text spans: replace the build-time digit with runtime value
+        ['years-exp-sub', 'years-exp-desc'].forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          // data-years-tpl holds the build-time rendered text
+          const src = el.getAttribute('data-years-tpl') ?? el.textContent ?? '';
+          el.textContent = src.replace(/\d+(\+ years?|\+ años| years?| años)/, years + '$1');
+        });
+      })();
+
+      // ── 7. Copy email button ─────────────────────────────────────────────
       document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(copyBtn => {
         copyBtn.addEventListener('click', async (e) => {
           e.preventDefault();
