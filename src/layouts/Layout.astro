@@ -2,6 +2,10 @@
 import { ClientRouter } from 'astro:transitions';
 import { siteConfig, type Lang } from '../config';
 import profile from '../content/profile.json';
+
+// Replace {yearsExperience} placeholder in profile text
+const yearsExp = new Date().getFullYear() - profile.careerStartYear;
+const yr = (s: string) => s.replace(/{yearsExperience}/g, String(yearsExp));
 import { useTranslations } from '../i18n/translations';
 import '../styles/global.css';
 

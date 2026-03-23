@@ -10,12 +10,12 @@
     "es": "Desarrolladora iOS Senior"
   },
   "subheadline": {
-    "en": "Swift, SwiftUI, UIKit — bugs firmly under control. 12+ years surviving Xcode",
-    "es": "Swift, SwiftUI, UIKit y bugs bien controlados. Más de 12 años sobreviviendo a Xcode"
+    "en": "Swift, SwiftUI, UIKit — bugs firmly under control. {yearsExperience}+ years surviving Xcode",
+    "es": "Swift, SwiftUI, UIKit y bugs bien controlados. Más de {yearsExperience} años sobreviviendo a Xcode"
   },
   "heroDescription": {
-    "en": "Accomplished iOS Developer with 12+ years of experience across healthcare, transportation, and enterprise sectors. Building user-centric solutions across Europe.",
-    "es": "Desarrolladora iOS con más de 12 años de experiencia en salud, transporte y empresa. Creando soluciones centradas en el usuario por toda Europa."
+    "en": "Accomplished iOS Developer with {yearsExperience}+ years of experience across healthcare, transportation, and enterprise sectors. Building user-centric solutions across Europe.",
+    "es": "Desarrolladora iOS con más de {yearsExperience} años de experiencia en salud, transporte y empresa. Creando soluciones centradas en el usuario por toda Europa."
   },
   "bio": {
     "en": "I build iOS apps that people actually use — from mental health platforms protecting patient data under GDPR, to EU border control systems for freight carriers, to Bluetooth beacon SDKs improving accessibility in public transport. With a Master's in Telecommunications Engineering from UVA and over a decade in Swift and Objective-C, I combine deep technical knowledge with clean architecture, rigorous testing, and a genuine obsession with accessibility and user experience.",
@@ -26,8 +26,8 @@
     "es": "Sobre mí"
   },
   "description": {
-    "en": "Senior iOS Developer with 12+ years of experience in healthcare, transportation, and enterprise apps. Based in Valladolid, Spain.",
-    "es": "Desarrolladora iOS Senior con más de 12 años de experiencia en apps de salud, transporte y empresa. Con base en Valladolid, España."
+    "en": "Senior iOS Developer with {yearsExperience}+ years of experience in healthcare, transportation, and enterprise apps. Based in Valladolid, Spain.",
+    "es": "Desarrolladora iOS Senior con más de {yearsExperience} años de experiencia en apps de salud, transporte y empresa. Con base en Valladolid, España."
   },
   "location": {
     "en": "Valladolid, Spain",

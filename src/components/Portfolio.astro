@@ -10,6 +10,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const yearsExperience = new Date().getFullYear() - profile.careerStartYear;
+// Replace {yearsExperience} placeholder in any profile text field
+const yr = (s: string) => s.replace(/\{yearsExperience\}/g, String(yearsExperience));
 
 const skillColors: Record<string, string> = {
   languages: '',
@@ -84,13 +86,13 @@ const skillColors: Record<string, string> = {
 
         <!-- Subheadline -->
         <div class="animate-fade-in-up delay-400 font-mono text-sm mb-6" style="color: var(--text-muted);">
-          // {profile.subheadline[lang]}
+          // {yr(profile.subheadline[lang])}
         </div>
 
         <!-- Description -->
         <p class="animate-fade-in-up delay-500 font-sans text-base leading-relaxed mb-8 max-w-xl"
            style="color: var(--text-body);">
-          {profile.heroDescription[lang]}
+          {yr(profile.heroDescription[lang])}
         </p>
 
         <!-- CTAs -->
